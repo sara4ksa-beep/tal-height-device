@@ -45,48 +45,29 @@ const Navigation = () => {
             <span className="text-lg sm:text-xl font-bold text-black hidden sm:block mr-8">{t('heightDevice')}</span>
           </Link>
 
-          {/* Desktop Navigation Menu */}
-          <NavigationMenu.Root className="hidden lg:block">
-            <NavigationMenu.List className="flex space-x-8 space-x-reverse items-center">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:block">
+            <ul className="flex items-center gap-16">
               {navItems.map((item) => (
-                <NavigationMenu.Item key={item.href}>
+                <li key={item.href}>
                   {item.external ? (
                     <a
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={cn(
-                        'px-3 py-2 rounded-md text-sm font-bold transition-colors duration-200',
-                        'text-black/90 hover:text-black hover:bg-black/10'
-                      )}
+                      className="text-black font-bold hover:text-gray-700 transition-colors duration-200"
                     >
                       {item.label}
                     </a>
                   ) : (
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        'px-3 py-2 rounded-md text-sm font-bold transition-colors duration-200',
-                        pathname === item.href
-                          ? 'bg-black/20 text-black'
-                          : 'text-black/90 hover:text-black hover:bg-black/10'
-                      )}
-                    >
+                    <Link href={item.href} className="text-black font-bold hover:text-gray-700 transition-colors duration-200">
                       {item.label}
                     </Link>
                   )}
-                </NavigationMenu.Item>
+                </li>
               ))}
-            </NavigationMenu.List>
-          </NavigationMenu.Root>
-
-          {/* Language Switch Button - Always Visible */}
-          <button
-            onClick={toggleLanguage}
-            className="px-4 py-2 bg-white/20 hover:bg-white/30 text-black font-bold rounded-lg transition-colors duration-200 border border-black/20"
-          >
-            {t('languageSwitch')}
-          </button>
+            </ul>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button 

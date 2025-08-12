@@ -100,10 +100,8 @@ export default function ContactPage() {
                   : 'Your message has been sent to our team. We will respond to you as soon as possible.'
                 }
               </p>
-              <Link href="/">
-                <a className="btn-primary">
-                  {language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home'}
-                </a>
+              <Link href="/" className="btn-primary">
+                {language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home'}
               </Link>
             </div>
           </div>
@@ -276,10 +274,8 @@ export default function ContactPage() {
                     : 'Check out the FAQ for quick answers'
                   }
                 </p>
-                <Link href="/questions">
-                  <a className="btn-secondary">
-                    {language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'}
-                  </a>
+                <Link href="/questions" className="btn-secondary">
+                  {language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'}
                 </Link>
               </div>
             </div>
