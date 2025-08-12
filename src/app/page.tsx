@@ -11,29 +11,29 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white" dir={dir}>
       {/* Hero Section */}
-      <section className="relative bg-cover bg-center bg-no-repeat text-white py-20 md:py-32" style={{ backgroundImage: 'url(/hero-banner.png)' }}>
+      <section className="relative bg-cover bg-center bg-no-repeat text-white py-12 sm:py-16 md:py-20 lg:py-32" style={{ backgroundImage: 'url(/hero-banner.png)' }}>
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 md:mb-8 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 lg:mb-8 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
             {t('heroTitle')}
           </h1>
-          <div className="inline-block bg-header-footer px-4 md:px-6 py-3 md:py-4 rounded-lg mb-6 md:mb-8 max-w-sm md:max-w-none">
-            <p className="text-lg md:text-xl lg:text-2xl font-bold leading-relaxed">
-              <span className="text-red-600 block mb-2">{language === 'ar' ? 'هل حلمت بزيادة طولك؟' : 'Have you dreamed of increasing your height?'}</span>
+          <div className="inline-block bg-header-footer px-3 sm:px-4 md:px-5 lg:px-6 py-2 sm:py-3 md:py-4 rounded-lg mb-3 sm:mb-4 md:mb-6 lg:mb-8 max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-none">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold leading-relaxed">
+              <span className="text-red-600 block mb-1 sm:mb-2">{language === 'ar' ? 'هل حلمت بزيادة طولك؟' : 'Have you dreamed of increasing your height?'}</span>
               <span className="text-black">{language === 'ar' ? 'الآن يمكنك تحقيق حلمك!' : 'Now you can achieve your dream!'}</span>
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-6 md:mb-8">
-            <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="btn-primary text-base md:text-lg px-8 md:px-10 py-4 md:py-5 text-center">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm sm:text-base md:text-lg px-3 sm:px-4 md:px-6 lg:px-8 py-2.5 sm:py-3 md:py-4 text-center inline-block w-auto sm:w-auto max-w-[200px] sm:max-w-none mx-auto sm:mx-0">
               {t('orderNow')}
             </a>
           </div>
           
           {/* Language Switch Button */}
-          <div className="mt-4 md:mt-6">
+          <div className="mt-2 sm:mt-3 md:mt-4 lg:mt-6">
             <button
               onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-              className="px-4 md:px-5 py-2 md:py-3 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg text-sm md:text-base"
+              className="px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-3 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg text-xs sm:text-sm md:text-base"
             >
               {language === 'ar' ? 'English' : 'العربية'}
             </button>
