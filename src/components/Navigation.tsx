@@ -42,7 +42,7 @@ const Navigation = () => {
                 height={48}
               />
             </div>
-            <span className="text-lg sm:text-xl font-bold text-black hidden sm:block mr-8">{t('heightDevice')}</span>
+            <span className="text-sm sm:text-lg md:text-xl font-bold text-black mr-4 sm:mr-8">{t('heightDevice')}</span>
           </Link>
 
           {/* Desktop Navigation */}
