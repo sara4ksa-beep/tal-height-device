@@ -18,8 +18,10 @@ export default function HomePage() {
             {t('heroTitle')}
           </h1>
           <div className="inline-block bg-header-footer px-6 py-3 rounded-lg mb-8">
-            <p className="text-xl md:text-2xl text-red-600 font-bold">
-              {t('heroSubtitle')}
+            <p className="text-xl md:text-2xl font-bold">
+              <span className="text-red-600">هل حلمت بزيادة طولك؟</span>
+              <br />
+              <span className="text-black">الآن يمكنك تحقيق حلمك!</span>
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
