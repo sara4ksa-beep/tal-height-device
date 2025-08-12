@@ -4,6 +4,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Link from 'next/link';
 
 const faqData = {
   ar: [
@@ -143,14 +144,22 @@ export default function QuestionsPage() {
               : 'You can contact us directly for an immediate answer'
             }
           </p>
-          <a
-            href="https://new-mall.com/tal/p364801713"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary text-lg px-8 py-4 inline-block"
-          >
-            {language === 'ar' ? 'اطلبه الآن' : 'Order Now'}
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="btn-primary text-lg px-8 py-4 inline-block"
+            >
+              {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+            </Link>
+            <a
+              href="https://new-mall.com/tal/p364801713"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary text-lg px-8 py-4 inline-block"
+            >
+              {language === 'ar' ? 'اطلبه الآن' : 'Order Now'}
+            </a>
+          </div>
         </div>
       </div>
     </div>
