@@ -6,6 +6,7 @@ import { useState } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -34,10 +35,11 @@ const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 space-x-reverse">
             <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-              <img 
+              <Image 
                 src="/cropped-tallogo-1.png" 
                 alt="TAL Height Device Logo" 
-                className="w-full h-full object-contain"
+                width={48}
+                height={48}
               />
             </div>
             <span className="text-lg sm:text-xl font-bold text-black hidden sm:block">{t('heightDevice')}</span>

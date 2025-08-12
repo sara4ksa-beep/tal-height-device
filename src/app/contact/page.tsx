@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import * as Form from '@radix-ui/react-form';
 import * as Select from '@radix-ui/react-select';
-import { CheckIcon, ChevronDownIcon, Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { CheckIcon, ChevronDownIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Link from 'next/link';
 
 export default function ContactPage() {
   const { language, dir } = useLanguage();
@@ -99,9 +100,11 @@ export default function ContactPage() {
                   : 'Your message has been sent to our team. We will respond to you as soon as possible.'
                 }
               </p>
-              <a href="/" className="btn-primary">
-                {language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home'}
-              </a>
+              <Link href="/">
+                <a className="btn-primary">
+                  {language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home'}
+                </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -273,9 +276,11 @@ export default function ContactPage() {
                     : 'Check out the FAQ for quick answers'
                   }
                 </p>
-                <a href="/questions" className="btn-secondary">
-                  {language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'}
-                </a>
+                <Link href="/questions">
+                  <a className="btn-secondary">
+                    {language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'}
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

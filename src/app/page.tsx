@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { CheckCircle, Star, Users, Award } from 'lucide-react';
+import { CheckCircle, Award } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 export default function HomePage() {
   const { t, dir, language } = useLanguage();
@@ -204,10 +205,11 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-4 space-x-reverse mb-4">
             <div className="w-8 h-8 bg-white rounded-full p-1 flex items-center justify-center">
-              <img 
+              <Image 
                 src="/cropped-tallogo-1.png" 
                 alt="TAL Height Device Logo" 
-                className="w-full h-full object-contain"
+                width={32}
+                height={32}
               />
             </div>
             <span className="text-lg font-semibold text-black">{t('heightDevice')} TAL</span>

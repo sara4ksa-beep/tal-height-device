@@ -42,19 +42,19 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     document.documentElement.lang = language;
   }, [language]);
 
-  const t = (key: string): any => {
+  const t = (key: string): string | string[] => {
     const keys = key.split('.');
-    let value: any = translations[language];
+    let value: unknown = translations[language];
     
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
-        value = value[k];
+        value = (value as Record<string, unknown>)[k];
       } else {
         return key; // Return key if translation not found
       }
     }
     
-    return value; // Return the actual value (string, array, etc.)
+    return value as string | string[]; // Return the actual value (string, array, etc.)
   };
 
   const dir = language === 'ar' ? 'rtl' : 'ltr';

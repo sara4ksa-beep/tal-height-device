@@ -113,7 +113,7 @@ const questions = {
 };
 
 export default function QuestionsPage() {
-  const { language, t, dir } = useLanguage();
+  const { language, dir } = useLanguage();
   const currentQuestions = questions[language as keyof typeof questions];
 
   return (
