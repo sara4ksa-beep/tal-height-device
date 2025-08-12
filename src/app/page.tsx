@@ -6,29 +6,39 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 
 export default function HomePage() {
-  const { t, dir, language } = useLanguage();
+  const { t, dir, language, setLanguage } = useLanguage();
 
   return (
     <div className="min-h-screen bg-white" dir={dir}>
       {/* Hero Section */}
-      <section className="relative bg-cover bg-center bg-no-repeat text-white py-20" style={{ backgroundImage: 'url(/hero-banner.png)' }}>
+      <section className="relative bg-cover bg-center bg-no-repeat text-white py-32" style={{ backgroundImage: 'url(/hero-banner.png)' }}>
         
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
             {t('heroTitle')}
           </h1>
           <div className="inline-block bg-header-footer px-6 py-3 rounded-lg mb-8">
-            <p className="text-xl md:text-2xl text-black font-bold">
+            <p className="text-xl md:text-2xl text-red-600 font-bold">
               {t('heroSubtitle')}
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-4">
               {t('orderNow')}
             </a>
             <Link href="/questions" className="btn-secondary text-lg px-8 py-4">
               {t('faq')}
             </Link>
+          </div>
+          
+          {/* Language Switch Button */}
+          <div className="mt-6">
+            <button
+              onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
+              className="px-6 py-3 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg"
+            >
+              {language === 'ar' ? 'English' : 'العربية'}
+            </button>
           </div>
         </div>
       </section>
@@ -89,58 +99,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Product Description */}
-      <section className="py-20">
+      {/* SEO Section - Moved Above Product Description */}
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">{t('productTitle')}</h2>
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              {t('productDesc1')}
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              {t('productDesc2')}
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              {t('productDesc3')}
-            </p>
+          <h2 className="section-title">علاج قصر القامة وزيادة الطول - كل ما تحتاج معرفته</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">كيف يعمل جهاز TAL لعلاج قصر القامة؟</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  جهاز TAL يعمل على تحفيز نمو العظام وتحسين الوضعية العامة للجسم. من خلال تقنيات متقدمة، 
+                  يساعد الجهاز في علاج قصر القامة وزيادة الطول بشكل طبيعي وآمن. يعالج أيضاً مشاكل العمود الفقري 
+                  ويصحح انحناء القامة.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">مميزات جهاز TAL لزيادة الطول</h3>
+                <ul className="text-gray-700 space-y-2">
+                  <li>• يزيد الطول 7 سم وأكثر</li>
+                  <li>• يعالج قصر القامة للكبار والصغار</li>
+                  <li>• يعالج آلام الظهر وانحناء القامة</li>
+                  <li>• يخلصك من بروز البطن</li>
+                  <li>• منتج معتمد لعلاج مشاكل الطول</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Additional SEO Content */}
-      <section className="py-20 bg-gray-50">
+      {/* Product Description */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">{t('seoTitle')}</h2>
+          <h2 className="section-title text-center mb-12">جهاز TAL لعلاج قصر القامة وزيادة الطول - منتج مجرب وحقق نتائج مبهرة</h2>
           <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{t('seo1Title')}</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  {t('seo1Desc')}
-                </p>
-              </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{t('seo2Title')}</h3>
-                <ul className="text-gray-700 space-y-2">
-                  {language === 'ar' ? (
-                    <>
-                      <li>• يزيد الطول 7 سم وأكثر</li>
-                      <li>• يعالج قصر القامة للكبار والصغار</li>
-                      <li>• يعالج آلام الظهر وانحناء القامة</li>
-                      <li>• يخلصك من بروز البطن</li>
-                      <li>• منتج معتمد لعلاج مشاكل الطول</li>
-                    </>
-                  ) : (
-                    <>
-                      <li>• Increases height by 7 cm or more</li>
-                      <li>• Treats short stature for adults and children</li>
-                      <li>• Treats back pain and posture problems</li>
-                      <li>• Eliminates belly protrusion</li>
-                      <li>• Certified product for treating height problems</li>
-                    </>
-                  )}
-                </ul>
-              </div>
+            <div className="space-y-6 text-right">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                جهاز زيادة الطول TAL ليس مجرد أداة لزيادة الطول، بل هو منتج مبتكر يجمع بين التكنولوجيا الحديثة وطرق تحفيز الجسم الطبيعية لعلاج قصر القامة. يعمل على تعزيز نمو العظام وتحسين الوضعية العامة للجسم، مما يؤدي إلى زيادة الطول 7 سم وأكثر. هذا الجهاز هو الحل الأمثل لعلاج مشاكل الطول والقصر.
+              </p>
+              
+              <p className="text-lg text-gray-700 leading-relaxed">
+                يوفر الجهاز حلاً شاملاً لمشاكل الطول والوضعية، مع سهولة الاستخدام ودليل مفصل للاستخدام الأمثل. تصميم عصري وسهل التخزين، مما يجعله إضافة مريحة لروتينك اليومي. جهاز TAL هو أفضل علاج لقصر القامة وزيادة الطول بشكل طبيعي وآمن.
+              </p>
+              
+              <p className="text-lg text-gray-700 leading-relaxed">
+                يأتي المنتج مع ضمان ودعم فني ممتاز، مما يضمن تجربة مستخدم جيدة. جهاز TAL معتمد لعلاج قصر القامة وزيادة الطول للكبار والصغار. لا تدع قصر القامة يحد من طموحاتك وثقتك بنفسك. اطلب جهاز TAL الآن وابدأ رحلة علاج قصر القامة وزيادة الطول.
+              </p>
             </div>
           </div>
         </div>

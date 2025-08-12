@@ -5,116 +5,44 @@ import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const questions = {
-  ar: [
-    {
-      id: '1',
-      question: 'كيف يعمل جهاز TAL لزيادة الطول؟',
-      answer: 'يعمل الجهاز من خلال تطبيق قوة شد تدريجية على العمود الفقري، مما يحفز نمو العظام وتمدد الأربطة. يستخدم تقنية علمية مدروسة لتحقيق نتائج آمنة وفعالة.'
-    },
-    {
-      id: '2',
-      question: 'كم من الوقت أحتاج لرؤية النتائج؟',
-      answer: 'تبدأ النتائج الأولية في الظهور خلال 2-4 أسابيع من الاستخدام المنتظم. للحصول على النتائج الكاملة (7 سم وأكثر)، يوصى بالاستخدام لمدة 3-6 أشهر.'
-    },
-    {
-      id: '3',
-      question: 'هل الجهاز آمن للاستخدام؟',
-      answer: 'نعم، الجهاز آمن تماماً للاستخدام. تم اختباره واعتماده من قبل خبراء الصحة. يستخدم تقنيات آمنة ولا يسبب أي أضرار جانبية.'
-    },
-    {
-      id: '4',
-      question: 'كم مرة يجب استخدام الجهاز يومياً؟',
-      answer: 'يوصى باستخدام الجهاز لمدة 15-20 دقيقة يومياً، 5-6 مرات في الأسبوع. يمكن زيادة المدة تدريجياً حسب راحة المستخدم.'
-    },
-    {
-      id: '5',
-      question: 'هل الجهاز مناسب لجميع الأعمار؟',
-      answer: 'الجهاز مناسب للبالغين من عمر 18-50 سنة. للأعمار الأكبر، يوصى باستشارة الطبيب قبل الاستخدام.'
-    },
-    {
-      id: '6',
-      question: 'ما هي مدة الضمان؟',
-      answer: 'نوفر ضمان شامل لمدة سنة كاملة على جميع أجزاء الجهاز. يشمل الضمان الإصلاح أو الاستبدال المجاني.'
-    },
-    {
-      id: '7',
-      question: 'هل الجهاز سهل الاستخدام؟',
-      answer: 'نعم، الجهاز سهل الاستخدام جداً. يأتي مع دليل مفصل بالصور والفيديو، بالإضافة إلى دعم فني متوفر على مدار الساعة.'
-    },
-    {
-      id: '8',
-      question: 'هل يمكن استخدام الجهاز مع حالات طبية معينة؟',
-      answer: 'في حالة وجود مشاكل صحية في العمود الفقري أو العظام، يوصى باستشارة الطبيب قبل الاستخدام. الجهاز آمن لمعظم الحالات.'
-    },
-    {
-      id: '9',
-      question: 'كيف يتم الشحن والتوصيل؟',
-      answer: 'نوفر خدمة شحن سريعة وآمنة لجميع أنحاء المملكة. التوصيل خلال 2-3 أيام عمل، مع إمكانية التتبع عبر الإنترنت.'
-    },
-    {
-      id: '10',
-      question: 'هل يمكن إرجاع الجهاز إذا لم يعجبني؟',
-      answer: 'نعم، نوفر ضمان استرداد الأموال خلال 30 يوماً من الشراء إذا لم تكن راضياً عن المنتج، بشرط أن يكون في حالة ممتازة.'
-    }
-  ],
-  en: [
-    {
-      id: '1',
-      question: 'How does the TAL device work to increase height?',
-      answer: 'The device works by applying gradual traction force to the spine, stimulating bone growth and ligament stretching. It uses scientifically studied technology to achieve safe and effective results.'
-    },
-    {
-      id: '2',
-      question: 'How long does it take to see results?',
-      answer: 'Initial results begin to appear within 2-4 weeks of regular use. For complete results (7 cm or more), it is recommended to use for 3-6 months.'
-    },
-    {
-      id: '3',
-      question: 'Is the device safe to use?',
-      answer: 'Yes, the device is completely safe to use. It has been tested and approved by health experts. It uses safe techniques and causes no side effects.'
-    },
-    {
-      id: '4',
-      question: 'How often should I use the device daily?',
-      answer: 'It is recommended to use the device for 15-20 minutes daily, 5-6 times a week. Duration can be gradually increased according to user comfort.'
-    },
-    {
-      id: '5',
-      question: 'Is the device suitable for all ages?',
-      answer: 'The device is suitable for adults aged 18-50 years. For older ages, it is recommended to consult a doctor before use.'
-    },
-    {
-      id: '6',
-      question: 'What is the warranty period?',
-      answer: 'We provide a comprehensive warranty for one full year on all parts of the device. The warranty includes free repair or replacement.'
-    },
-    {
-      id: '7',
-      question: 'Is the device easy to use?',
-      answer: 'Yes, the device is very easy to use. It comes with a detailed manual with pictures and video, plus technical support available 24/7.'
-    },
-    {
-      id: '8',
-      question: 'Can the device be used with certain medical conditions?',
-      answer: 'In case of health problems in the spine or bones, it is recommended to consult a doctor before use. The device is safe for most cases.'
-    },
-    {
-      id: '9',
-      question: 'How is shipping and delivery done?',
-      answer: 'We provide fast and secure shipping service throughout the Kingdom. Delivery within 2-3 working days, with online tracking capability.'
-    },
-    {
-      id: '10',
-      question: 'Can I return the device if I don\'t like it?',
-      answer: 'Yes, we provide a money-back guarantee within 30 days of purchase if you are not satisfied with the product, provided it is in excellent condition.'
-    }
-  ]
-};
+const faqData = [
+  {
+    question: "ما هو جهاز TAL لزيادة الطول؟",
+    answer: "جهاز TAL هو جهاز طبي متطور مصمم لعلاج قصر القامة وزيادة الطول بشكل طبيعي وآمن. يعمل الجهاز على تحفيز نمو العظام وتحسين الوضعية العامة للجسم."
+  },
+  {
+    question: "كيف يعمل جهاز TAL؟",
+    answer: "يعمل الجهاز من خلال تقنيات متقدمة لتحفيز نمو العظام وتقوية العضلات المحيطة بالعمود الفقري. يساعد في تصحيح انحناء القامة وعلاج مشاكل العمود الفقري."
+  },
+  {
+    question: "ما هي الفئة العمرية المناسبة لاستخدام الجهاز؟",
+    answer: "الجهاز مناسب للاستخدام من عمر 14 إلى 40 سنة. يمكن استخدامه بأمان في هذه الفئة العمرية لتحقيق أفضل النتائج."
+  },
+  {
+    question: "متى تظهر النتائج؟",
+    answer: "النتائج تظهر من 3 إلى 6 أشهر من الاستخدام المنتظم. يختلف الوقت حسب حالة كل شخص والتزامه بتعليمات الاستخدام."
+  },
+  {
+    question: "هل الجهاز آمن للاستخدام؟",
+    answer: "نعم، الجهاز آمن تماماً للاستخدام. تم اختباره واعتماده من الجهات الصحية المختصة. لا يسبب أي آثار جانبية ضارة."
+  },
+  {
+    question: "كم ساعة يجب استخدام الجهاز يومياً؟",
+    answer: "يُنصح باستخدام الجهاز لمدة 30-45 دقيقة يومياً للحصول على أفضل النتائج. يمكن تقسيم الوقت على فترات متعددة خلال اليوم."
+  },
+  {
+    question: "هل يمكن استخدام الجهاز مع وجود مشاكل صحية؟",
+    answer: "يُنصح باستشارة الطبيب قبل الاستخدام إذا كان لديك مشاكل صحية معينة. الجهاز آمن لمعظم الحالات ولكن من الأفضل التأكد من الطبيب."
+  },
+  {
+    question: "ما هي الضمانات المقدمة مع الجهاز؟",
+    answer: "يأتي الجهاز مع ضمان شامل لمدة سنة كاملة. يشمل الضمان جميع الأجزاء والعيوب في التصنيع."
+  }
+];
 
 export default function QuestionsPage() {
   const { language, dir } = useLanguage();
-  const currentQuestions = questions[language as keyof typeof questions];
+  const currentQuestions = faqData;
 
   return (
     <div className="min-h-screen bg-gray-50 py-20" dir={dir}>
@@ -141,16 +69,16 @@ export default function QuestionsPage() {
           >
             {currentQuestions.map((item) => (
               <Accordion.Item
-                key={item.id}
-                value={item.id}
+                key={item.question}
+                value={item.question}
                 className="bg-white rounded-lg shadow-md border border-gray-200"
               >
                 <Accordion.Header className="flex">
-                  <Accordion.Trigger className="flex flex-1 items-center justify-between py-6 px-6 text-right font-semibold text-gray-900 hover:bg-gray-50 transition-colors rounded-lg">
+                  <Accordion.Trigger className="flex flex-1 items-center justify-between py-6 px-6 text-right font-semibold text-red-600 hover:bg-gray-50 transition-colors rounded-lg">
                     <span className="text-lg">{item.question}</span>
                     <ChevronDownIcon
                       className={cn(
-                        'h-5 w-5 text-gray-500 transition-transform duration-300',
+                        'h-5 w-5 text-red-500 transition-transform duration-300',
                         'data-[state=open]:rotate-180'
                       )}
                     />

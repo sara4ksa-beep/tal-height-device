@@ -33,7 +33,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 space-x-reverse">
+          <Link href="/" className="flex items-center space-x-6 space-x-reverse">
             <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
               <Image 
                 src="/cropped-tallogo-1.png" 
