@@ -19,9 +19,9 @@ export default function HomePage() {
           </h1>
           <div className="inline-block bg-header-footer px-6 py-3 rounded-lg mb-8">
             <p className="text-xl md:text-2xl font-bold">
-              <span className="text-red-600">هل حلمت بزيادة طولك؟</span>
+              <span className="text-red-600">{language === 'ar' ? 'هل حلمت بزيادة طولك؟' : 'Have you dreamed of increasing your height?'}</span>
               <br />
-              <span className="text-black">الآن يمكنك تحقيق حلمك!</span>
+              <span className="text-black">{language === 'ar' ? 'الآن يمكنك تحقيق حلمك!' : 'Now you can achieve your dream!'}</span>
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -101,25 +101,35 @@ export default function HomePage() {
       {/* SEO Section - Moved Above Product Description */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">علاج قصر القامة وزيادة الطول - كل ما تحتاج معرفته</h2>
+          <h2 className="section-title">{t('seoTitle')}</h2>
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">كيف يعمل جهاز TAL لعلاج قصر القامة؟</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{t('seo1Title')}</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  جهاز TAL يعمل على تحفيز نمو العظام وتحسين الوضعية العامة للجسم. من خلال تقنيات متقدمة، 
-                  يساعد الجهاز في علاج قصر القامة وزيادة الطول بشكل طبيعي وآمن. يعالج أيضاً مشاكل العمود الفقري 
-                  ويصحح انحناء القامة.
+                  {t('seo1Desc')}
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">مميزات جهاز TAL لزيادة الطول</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{t('seo2Title')}</h3>
                 <ul className="text-gray-700 space-y-2">
-                  <li>• يزيد الطول 7 سم وأكثر</li>
-                  <li>• يعالج قصر القامة للكبار والصغار</li>
-                  <li>• يعالج آلام الظهر وانحناء القامة</li>
-                  <li>• يخلصك من بروز البطن</li>
-                  <li>• منتج معتمد لعلاج مشاكل الطول</li>
+                  {language === 'ar' ? (
+                    <>
+                      <li>• يزيد الطول 7 سم وأكثر</li>
+                      <li>• يعالج قصر القامة للكبار والصغار</li>
+                      <li>• يعالج آلام الظهر وانحناء القامة</li>
+                      <li>• يخلصك من بروز البطن</li>
+                      <li>• منتج معتمد لعلاج مشاكل الطول</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>• Increases height by 7 cm or more</li>
+                      <li>• Treats short stature for adults and children</li>
+                      <li>• Treats back pain and posture problems</li>
+                      <li>• Eliminates belly protrusion</li>
+                      <li>• Certified product for treating height problems</li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -130,19 +140,19 @@ export default function HomePage() {
       {/* Product Description */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="section-title text-center mb-12">جهاز TAL لعلاج قصر القامة وزيادة الطول - منتج مجرب وحقق نتائج مبهرة</h2>
+          <h2 className="section-title text-center mb-12">{t('productTitle')}</h2>
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6 text-right">
               <p className="text-lg text-gray-700 leading-relaxed">
-                جهاز زيادة الطول TAL ليس مجرد أداة لزيادة الطول، بل هو منتج مبتكر يجمع بين التكنولوجيا الحديثة وطرق تحفيز الجسم الطبيعية لعلاج قصر القامة. يعمل على تعزيز نمو العظام وتحسين الوضعية العامة للجسم، مما يؤدي إلى زيادة الطول 7 سم وأكثر. هذا الجهاز هو الحل الأمثل لعلاج مشاكل الطول والقصر.
+                {t('productDesc1')}
               </p>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                يوفر الجهاز حلاً شاملاً لمشاكل الطول والوضعية، مع سهولة الاستخدام ودليل مفصل للاستخدام الأمثل. تصميم عصري وسهل التخزين، مما يجعله إضافة مريحة لروتينك اليومي. جهاز TAL هو أفضل علاج لقصر القامة وزيادة الطول بشكل طبيعي وآمن.
+                {t('productDesc2')}
               </p>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                يأتي المنتج مع ضمان ودعم فني ممتاز، مما يضمن تجربة مستخدم جيدة. جهاز TAL معتمد لعلاج قصر القامة وزيادة الطول للكبار والصغار. لا تدع قصر القامة يحد من طموحاتك وثقتك بنفسك. اطلب جهاز TAL الآن وابدأ رحلة علاج قصر القامة وزيادة الطول.
+                {t('productDesc3')}
               </p>
             </div>
           </div>
