@@ -8,7 +8,7 @@ type Language = 'ar' | 'en';
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: string) => string | string[];
   dir: 'rtl' | 'ltr';
 }
 
