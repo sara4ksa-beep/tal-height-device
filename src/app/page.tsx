@@ -28,16 +28,13 @@ export default function HomePage() {
             <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-4">
               {t('orderNow')}
             </a>
-            <Link href="/questions" className="btn-secondary text-lg px-8 py-4">
-              {t('faq')}
-            </Link>
           </div>
           
           {/* Language Switch Button */}
           <div className="mt-6">
             <button
               onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-              className="px-6 py-3 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg"
+              className="px-4 py-2 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg text-sm"
             >
               {language === 'ar' ? 'English' : 'العربية'}
             </button>
