@@ -33,7 +33,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-6 space-x-reverse">
+          <Link href="/" className="flex items-center">
             <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
               <Image 
                 src="/cropped-tallogo-1.png" 
@@ -42,7 +42,7 @@ const Navigation = () => {
                 height={48}
               />
             </div>
-            <span className="text-lg sm:text-xl font-bold text-black hidden sm:block">{t('heightDevice')}</span>
+            <span className="text-lg sm:text-xl font-bold text-black hidden sm:block mr-8">{t('heightDevice')}</span>
           </Link>
 
           {/* Desktop Navigation Menu */}
