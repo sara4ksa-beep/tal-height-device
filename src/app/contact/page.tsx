@@ -14,32 +14,12 @@ export default function ContactPage() {
     name: '',
     email: '',
     phone: '',
-    subject: '',
     message: '',
     contactMethod: 'email'
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const subjects = {
-    ar: [
-      'استفسار عام',
-      'معلومات المنتج',
-      'الدعم الفني',
-      'الشكاوى والاقتراحات',
-      'طلب عرض سعر',
-      'أخرى'
-    ],
-    en: [
-      'General Inquiry',
-      'Product Information',
-      'Technical Support',
-      'Complaints and Suggestions',
-      'Price Quote Request',
-      'Other'
-    ]
-  };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
@@ -63,7 +43,7 @@ export default function ContactPage() {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          message: `${language === 'ar' ? 'الموضوع' : 'Subject'}: ${formData.subject}\n\n${formData.message}`
+          message: formData.message
         }),
       });
 
@@ -188,38 +168,6 @@ export default function ContactPage() {
                   <Form.Message match="typeMismatch" className="text-red-500 text-sm">
                     {language === 'ar' ? 'يرجى إدخال بريد إلكتروني صحيح' : 'Please enter a valid email'}
                   </Form.Message>
-                </Form.Field>
-
-                <Form.Field name="subject" className="space-y-2">
-                  <Form.Label className="text-sm font-medium text-gray-700">
-                    {language === 'ar' ? 'الموضوع *' : 'Subject *'}
-                  </Form.Label>
-                  <Select.Root value={formData.subject} onValueChange={(value) => handleInputChange('subject', value)}>
-                    <Select.Trigger className="input-field flex items-center justify-between">
-                      <Select.Value placeholder={language === 'ar' ? 'اختر الموضوع' : 'Choose subject'} />
-                      <Select.Icon>
-                        <ChevronDownIcon className="w-4 h-4" />
-                      </Select.Icon>
-                    </Select.Trigger>
-                    <Select.Portal>
-                      <Select.Content className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                        <Select.Viewport className="p-2">
-                          {subjects[language as keyof typeof subjects].map((subject) => (
-                            <Select.Item
-                              key={subject}
-                              value={subject}
-                              className="relative flex items-center px-8 py-2 text-sm text-gray-700 hover:bg-blue-50 cursor-pointer rounded"
-                            >
-                              <Select.ItemText>{subject}</Select.ItemText>
-                              <Select.ItemIndicator className="absolute left-2 inline-flex items-center">
-                                <CheckIcon className="w-4 h-4" />
-                              </Select.ItemIndicator>
-                            </Select.Item>
-                          ))}
-                        </Select.Viewport>
-                      </Select.Content>
-                    </Select.Portal>
-                  </Select.Root>
                 </Form.Field>
 
                 <Form.Field name="message" className="space-y-2">
