@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'TAL Height Device' }],
   creator: 'TAL Height Device',
   publisher: 'TAL Height Device',
+  icons: {
+    icon: '/cropped-tallogo-1.png',
+    shortcut: '/cropped-tallogo-1.png',
+    apple: '/cropped-tallogo-1.png',
+  },
   formatDetection: {
     email: false,
     address: false,
