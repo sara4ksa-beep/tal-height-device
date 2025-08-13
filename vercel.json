@@ -10,6 +10,10 @@
         {
           "key": "Pragma",
           "value": "no-cache"
+        },
+        {
+          "key": "Expires",
+          "value": "0"
         }
       ]
     },
@@ -23,6 +27,19 @@
         {
           "key": "Pragma",
           "value": "no-cache"
+        },
+        {
+          "key": "Expires",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
         }
       ]
     }
@@ -32,5 +49,7 @@
       "source": "/favicon.ico",
       "destination": "/cropped-tallogo-1.png"
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
