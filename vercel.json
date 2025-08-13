@@ -17,23 +17,7 @@
         }
       ]
     },
-    {
-      "source": "/favicon.ico",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
-        {
-          "key": "Pragma",
-          "value": "no-cache"
-        },
-        {
-          "key": "Expires",
-          "value": "0"
-        }
-      ]
-    },
+
     {
       "source": "/(.*)",
       "headers": [
@@ -42,12 +26,6 @@
           "value": "DENY"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/favicon.ico",
-      "destination": "/cropped-tallogo-1.png"
     }
   ],
   "cleanUrls": true,
