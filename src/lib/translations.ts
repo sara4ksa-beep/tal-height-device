@@ -51,7 +51,7 @@ export const translations = {
     testimonial4: {
       name: 'خالد المطيري',
       text: 'كان عندي ثوب أطول مني و الان صار بطولي و ظهري صار احسن وهذة تو البدايات شكرا لكم'
-    }
+    },
     
     // SEO Section
     seoTitle: 'علاج قصر القامة وزيادة الطول - كل ما تحتاج معرفته',
@@ -132,7 +132,7 @@ export const translations = {
     testimonial4: {
       name: 'Khalid Al-Mutairi',
       text: 'I had a thobe that was longer than me, and now it fits my height, and my back has become better, and this is just the beginning, thank you'
-    }
+    },
     
     // SEO Section
     seoTitle: 'Treating Short Stature and Height Increase - Everything You Need to Know',
