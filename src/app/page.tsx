@@ -143,45 +143,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Product Description */}
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8 md:mb-12">{t('productTitle')}</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-4 md:space-y-6 text-right">
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                {t('productDesc1')}
-              </p>
-              
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                {t('productDesc2')}
-              </p>
-              
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                {t('productDesc3')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-12 md:py-20 bg-blue-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">{t('ctaTitle')}</h2>
-          <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
-            {t('ctaSubtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-6 md:mb-8">
-            <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4">
-              {t('ctaButton')}
-            </a>
-          </div>
-          <Link href="/questions" className="text-base md:text-lg text-red-600 mb-6 md:mb-8 hover:text-red-700 cursor-pointer underline">
-            {t('ctaFaq')}
-          </Link>
-        </div>
-      </section>
 
       {/* Testimonials */}
       <section className="py-12 md:py-16 bg-gray-50">
@@ -325,6 +287,24 @@ export default function HomePage() {
               </SwiperSlide>
             </Swiper>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-12 md:py-20 bg-blue-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">{t('ctaTitle')}</h2>
+          <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
+            {t('ctaSubtitle')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-6 md:mb-8">
+            <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4">
+              {t('ctaButton')}
+            </a>
+          </div>
+          <Link href="/questions" className="text-base md:text-lg text-red-600 mb-6 md:mb-8 hover:text-red-700 cursor-pointer underline">
+            {t('ctaFaq')}
+          </Link>
         </div>
       </section>
 

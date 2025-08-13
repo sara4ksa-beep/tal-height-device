@@ -29,10 +29,10 @@ export const translations = {
     feature6Desc: 'منتج معتمد وموثوق',
     
     // Product Description
-    productTitle: 'جهاز TAL لعلاج قصر القامة وزيادة الطول - منتج مجرب وحقق نتائج مبهرة',
-    productDesc1: 'جهاز زيادة الطول TAL ليس مجرد أداة لزيادة الطول، بل هو منتج مبتكر يجمع بين التكنولوجيا الحديثة وطرق تحفيز الجسم الطبيعية لعلاج قصر القامة. يعمل على تعزيز نمو العظام وتحسين الوضعية العامة للجسم، مما يؤدي إلى زيادة الطول 7 سم وأكثر. هذا الجهاز هو الحل الأمثل لعلاج مشاكل الطول والقصر.',
-    productDesc2: 'يوفر الجهاز حلاً شاملاً لمشاكل الطول والوضعية، مع سهولة الاستخدام ودليل مفصل للاستخدام الأمثل. تصميم عصري وسهل التخزين، مما يجعله إضافة مريحة لروتينك اليومي. جهاز TAL هو أفضل علاج لقصر القامة وزيادة الطول بشكل طبيعي وآمن.',
-    productDesc3: 'يأتي المنتج مع ضمان ودعم فني ممتاز، مما يضمن تجربة مستخدم جيدة. جهاز TAL معتمد لعلاج قصر القامة وزيادة الطول للكبار والصغار. لا تدع قصر القامة يحد من طموحاتك وثقتك بنفسك. اطلب جهاز TAL الآن وابدأ رحلة علاج قصر القامة وزيادة الطول.',
+    productTitle: 'تقييمات العملاء',
+    productDesc1: '',
+    productDesc2: '',
+    productDesc3: '',
     
     // SEO Section
     seoTitle: 'علاج قصر القامة وزيادة الطول - كل ما تحتاج معرفته',
@@ -91,10 +91,10 @@ export const translations = {
     feature6Desc: 'Certified and trusted product',
     
     // Product Description
-    productTitle: 'TAL Device for Treating Short Stature and Height Increase - Proven Product with Amazing Results',
-    productDesc1: 'The TAL height increase device is not just a tool for increasing height, but an innovative product that combines modern technology with natural body stimulation methods to treat short stature. It works by enhancing bone growth and improving overall body posture, leading to a height increase of 7 cm or more. This device is the ideal solution for treating height and stature problems.',
-    productDesc2: 'The device provides a comprehensive solution for height and posture problems, with easy use and detailed instructions for optimal use. Modern design and easy storage make it a comfortable addition to your daily routine. The TAL device is the best treatment for short stature and height increase in a natural and safe way.',
-    productDesc3: 'The product comes with excellent warranty and technical support, ensuring a good user experience. The TAL device is certified for treating short stature and height increase for adults and children. Don\'t let short stature limit your ambitions and self-confidence. Order the TAL device now and start your journey of treating short stature and height increase.',
+    productTitle: 'Customer Testimonials',
+    productDesc1: '',
+    productDesc2: '',
+    productDesc3: '',
     
     // SEO Section
     seoTitle: 'Treating Short Stature and Height Increase - Everything You Need to Know',
