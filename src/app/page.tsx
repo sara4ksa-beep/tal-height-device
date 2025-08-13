@@ -4,6 +4,13 @@ import Link from 'next/link';
 import { CheckCircle, Award } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function HomePage() {
   const { t, dir, language, setLanguage } = useLanguage();
@@ -176,6 +183,151 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8 md:mb-12">
+            تقييمات العملاء
+          </h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={3}
+              navigation={false}
+              pagination={{ 
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              loop={true}
+              speed={600}
+              effect="slide"
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                1280: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
+              className="testimonials-swiper"
+            >
+              {/* Testimonial 1 */}
+              <SwiperSlide>
+                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
+                      م
+                    </div>
+                    <div className="mr-3">
+                      <h4 className="font-semibold text-gray-900">محمد الرحبي</h4>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    الله يجزاك بالخير ، جهاز الطول فاندي حوالي ٥ سم و مستمر عليه و ان شاء الله استفيد اكثر
+                  </p>
+                </div>
+              </SwiperSlide>
+
+              {/* Testimonial 2 */}
+              <SwiperSlide>
+                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-lg">
+                      ح
+                    </div>
+                    <div className="mr-3">
+                      <h4 className="font-semibold text-gray-900">حمد المطاوعة</h4>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    الحمد لله زاد طولي ٣ سم و حالي لي شهرين استخدمه كان اخوي يستخدمه و الان انا استخدمه
+                  </p>
+                </div>
+              </SwiperSlide>
+
+              {/* Testimonial 3 */}
+              <SwiperSlide>
+                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg">
+                      ل
+                    </div>
+                    <div className="mr-3">
+                      <h4 className="font-semibold text-gray-900">ليلى البستاني</h4>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    بدي احكي عن الجهاز الحمد لله هلق استفدت و زدت حوالي ٤ سم وباقي شهرين على الاستعمال
+                  </p>
+                </div>
+              </SwiperSlide>
+
+              {/* Testimonial 4 */}
+              <SwiperSlide>
+                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-lg">
+                      خ
+                    </div>
+                    <div className="mr-3">
+                      <h4 className="font-semibold text-gray-900">خالد المطيري</h4>
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    كان عندي ثوب أطول مني و الان صار بطولي و ظهري صار احسن وهذة تو البدايات شكرا لكم
+                  </p>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+        </div>
+      </section>
+
       {/* Social Media */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
@@ -215,7 +367,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-3 md:space-x-4 space-x-reverse mb-3 md:mb-4">
             <div className="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full p-1 flex items-center justify-center">
-              <Image 
+          <Image
                 src="/cropped-tallogo-1.png" 
                 alt="TAL Height Device Logo" 
                 width={32}

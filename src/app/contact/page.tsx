@@ -226,6 +226,27 @@ export default function ContactPage() {
                   {language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'}
                 </Link>
               </div>
+
+              {/* Order Now Box */}
+              <div className="bg-green-50 rounded-xl p-6 text-center border border-green-200">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  {language === 'ar' ? 'أو اطلبه الآن' : 'Or Order Now'}
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  {language === 'ar' 
+                    ? 'بالضغط على الزر أدناه'
+                    : 'By clicking the button below'
+                  }
+                </p>
+                <a 
+                  href="https://new-mall.com/tal/p364801713" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-primary inline-block"
+                >
+                  {language === 'ar' ? 'اطلبه الآن' : 'Order Now'}
+                </a>
+              </div>
             </div>
           </div>
         </div>
