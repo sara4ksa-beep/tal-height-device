@@ -11,9 +11,16 @@ export const metadata: Metadata = {
   creator: 'TAL Height Device',
   publisher: 'TAL Height Device',
   icons: {
-    icon: '/cropped-tallogo-1.png',
+    icon: [
+      { url: '/cropped-tallogo-1.png', sizes: '32x32', type: 'image/png' },
+      { url: '/cropped-tallogo-1.png', sizes: '16x16', type: 'image/png' },
+    ],
     shortcut: '/cropped-tallogo-1.png',
     apple: '/cropped-tallogo-1.png',
+    other: [
+      { rel: 'icon', url: '/cropped-tallogo-1.png', sizes: '32x32', type: 'image/png' },
+      { rel: 'icon', url: '/cropped-tallogo-1.png', sizes: '16x16', type: 'image/png' },
+    ],
   },
   formatDetection: {
     email: false,
@@ -75,10 +82,22 @@ export default function RootLayout({
         <link rel="canonical" href="https://tal7cm.com" />
         <link rel="alternate" hrefLang="ar" href="https://tal7cm.com" />
         <link rel="alternate" hrefLang="en" href="https://tal7cm.com/en" />
+        
+        {/* Favicon Links */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/cropped-tallogo-1.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/cropped-tallogo-1.png" />
+        <link rel="shortcut icon" href="/cropped-tallogo-1.png" />
+        <link rel="apple-touch-icon" href="/cropped-tallogo-1.png" />
+        
         <meta name="geo.region" content="SA" />
         <meta name="geo.placename" content="Saudi Arabia" />
         <meta name="geo.position" content="24.7136;46.6753" />
         <meta name="ICBM" content="24.7136, 46.6753" />
+        
+        {/* Cache Control for Favicon */}
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
         
         {/* Structured Data for Local Business */}
         <script
