@@ -149,7 +149,7 @@ export default function HomePage() {
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8 md:mb-12">
-            تقييمات العملاء
+            {t('testimonialsTitle')}
           </h2>
           
           <div className="max-w-6xl mx-auto">
@@ -195,10 +195,10 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
-                      م
+                      {language === 'ar' ? 'م' : 'M'}
                     </div>
                     <div className="mr-3">
-                      <h4 className="font-semibold text-gray-900">محمد الرحبي</h4>
+                      <h4 className="font-semibold text-gray-900">{t('testimonial1.name')}</h4>
                       <div className="flex text-yellow-400">
                         {[...Array(5)].map((_, i) => (
                           <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -209,7 +209,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    الله يجزاك بالخير ، جهاز الطول فاندي حوالي ٥ سم و مستمر عليه و ان شاء الله استفيد اكثر
+                    {t('testimonial1.text')}
                   </p>
                 </div>
               </SwiperSlide>
@@ -219,10 +219,10 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-lg">
-                      ح
+                      {language === 'ar' ? 'ح' : 'H'}
                     </div>
                     <div className="mr-3">
-                      <h4 className="font-semibold text-gray-900">حمد المطاوعة</h4>
+                      <h4 className="font-semibold text-gray-900">{t('testimonial2.name')}</h4>
                       <div className="flex text-yellow-400">
                         {[...Array(5)].map((_, i) => (
                           <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -233,7 +233,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    الحمد لله زاد طولي ٣ سم و حالي لي شهرين استخدمه كان اخوي يستخدمه و الان انا استخدمه
+                    {t('testimonial2.text')}
                   </p>
                 </div>
               </SwiperSlide>
@@ -243,10 +243,10 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg">
-                      ل
+                      {language === 'ar' ? 'ل' : 'L'}
                     </div>
                     <div className="mr-3">
-                      <h4 className="font-semibold text-gray-900">ليلى البستاني</h4>
+                      <h4 className="font-semibold text-gray-900">{t('testimonial3.name')}</h4>
                       <div className="flex text-yellow-400">
                         {[...Array(5)].map((_, i) => (
                           <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -257,7 +257,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    بدي احكي عن الجهاز الحمد لله هلق استفدت و زدت حوالي ٤ سم وباقي شهرين على الاستعمال
+                    {t('testimonial3.text')}
                   </p>
                 </div>
               </SwiperSlide>
@@ -267,10 +267,10 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-lg">
-                      خ
+                      {language === 'ar' ? 'خ' : 'K'}
                     </div>
                     <div className="mr-3">
-                      <h4 className="font-semibold text-gray-900">خالد المطيري</h4>
+                      <h4 className="font-semibold text-gray-900">{t('testimonial4.name')}</h4>
                       <div className="flex text-yellow-400">
                         {[...Array(5)].map((_, i) => (
                           <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -281,7 +281,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <p className="text-gray-700 text-sm leading-relaxed">
-                    كان عندي ثوب أطول مني و الان صار بطولي و ظهري صار احسن وهذة تو البدايات شكرا لكم
+                    {t('testimonial4.text')}
                   </p>
                 </div>
               </SwiperSlide>

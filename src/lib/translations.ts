@@ -34,6 +34,25 @@ export const translations = {
     productDesc2: '',
     productDesc3: '',
     
+    // Testimonials
+    testimonialsTitle: 'تقييمات العملاء',
+    testimonial1: {
+      name: 'محمد الرحبي',
+      text: 'الله يجزاك بالخير ، جهاز الطول فاندي حوالي ٥ سم و مستمر عليه و ان شاء الله استفيد اكثر'
+    },
+    testimonial2: {
+      name: 'حمد المطاوعة',
+      text: 'الحمد لله زاد طولي ٣ سم و حالي لي شهرين استخدمه كان اخوي يستخدمه و الان انا استخدمه'
+    },
+    testimonial3: {
+      name: 'ليلى البستاني',
+      text: 'بدي احكي عن الجهاز الحمد لله هلق استفدت و زدت حوالي ٤ سم وباقي شهرين على الاستعمال'
+    },
+    testimonial4: {
+      name: 'خالد المطيري',
+      text: 'كان عندي ثوب أطول مني و الان صار بطولي و ظهري صار احسن وهذة تو البدايات شكرا لكم'
+    }
+    
     // SEO Section
     seoTitle: 'علاج قصر القامة وزيادة الطول - كل ما تحتاج معرفته',
     seo1Title: 'كيف يعمل جهاز TAL لعلاج قصر القامة؟',
@@ -95,6 +114,25 @@ export const translations = {
     productDesc1: '',
     productDesc2: '',
     productDesc3: '',
+    
+    // Testimonials
+    testimonialsTitle: 'Customer Testimonials',
+    testimonial1: {
+      name: 'Mohammed Al-Rahbi',
+      text: 'May God reward you with goodness, the height device increased my height by about 5 cm and I am continuing to use it, God willing, I will benefit more'
+    },
+    testimonial2: {
+      name: 'Hamad Al-Matawa',
+      text: 'Praise be to God, my height increased by 3 cm and I have been using it for two months, my brother was using it before and now I am using it'
+    },
+    testimonial3: {
+      name: 'Layla Al-Bustani',
+      text: 'I want to talk about the device, praise be to God, now I have benefited and increased by about 4 cm and I still have two months of use left'
+    },
+    testimonial4: {
+      name: 'Khalid Al-Mutairi',
+      text: 'I had a thobe that was longer than me, and now it fits my height, and my back has become better, and this is just the beginning, thank you'
+    }
     
     // SEO Section
     seoTitle: 'Treating Short Stature and Height Increase - Everything You Need to Know',
