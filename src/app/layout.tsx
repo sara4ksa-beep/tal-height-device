@@ -10,18 +10,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'TAL Height Device' }],
   creator: 'TAL Height Device',
   publisher: 'TAL Height Device',
-  icons: {
-    icon: [
-      { url: '/cropped-tallogo-1.png', sizes: '32x32', type: 'image/png' },
-      { url: '/cropped-tallogo-1.png', sizes: '16x16', type: 'image/png' },
-    ],
-    shortcut: '/cropped-tallogo-1.png',
-    apple: '/cropped-tallogo-1.png',
-    other: [
-      { rel: 'icon', url: '/cropped-tallogo-1.png', sizes: '32x32', type: 'image/png' },
-      { rel: 'icon', url: '/cropped-tallogo-1.png', sizes: '16x16', type: 'image/png' },
-    ],
-  },
+
   formatDetection: {
     email: false,
     address: false,
@@ -88,6 +77,8 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/cropped-tallogo-1.png" />
         <link rel="shortcut icon" href="/cropped-tallogo-1.png" />
         <link rel="apple-touch-icon" href="/cropped-tallogo-1.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/cropped-tallogo-1.png" type="image/png" />
         
         <meta name="geo.region" content="SA" />
         <meta name="geo.placename" content="Saudi Arabia" />
@@ -101,6 +92,11 @@ export default function RootLayout({
         <meta name="cache-control" content="no-cache, no-store, must-revalidate" />
         <meta name="pragma" content="no-cache" />
         <meta name="expires" content="0" />
+        
+        {/* Additional Favicon Meta */}
+        <meta name="msapplication-TileImage" content="/cropped-tallogo-1.png" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="theme-color" content="#000000" />
         
         {/* Structured Data for Local Business */}
         <script
