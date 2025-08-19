@@ -4,9 +4,9 @@ import Navigation from '@/components/Navigation';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export const metadata: Metadata = {
-  title: 'جهاز زيادة الطول TAL - علاج قصر القامة وزيادة الطول 7 سم | TAL7cm.com',
+  title: 'جهاز زيادة الطول TAL - جهاز الطول | TAL7cm.com',
   description: 'جهاز TAL لزيادة الطول وعلاج قصر القامة. يزيد طولك 7 سم وأكثر، يعالج آلام الظهر، يخلصك من بروز البطن، يعالج انحناء القامة. منتج مجرب وموثوق لعلاج مشاكل الطول.',
-  keywords: 'جهاز زيادة الطول, علاج قصر القامة, زيادة الطول 7 سم, جهاز TAL, علاج انحناء القامة, علاج آلام الظهر, علاج بروز البطن, تطويل القامة, علاج القصر, جهاز تطويل, زيادة الطول طبيعي, علاج مشاكل الطول, جهاز TAL7cm, منتج زيادة الطول, علاج قصر القامة للكبار, جهاز تطويل العمود الفقري',
+  keywords: 'جهاز زيادة الطول, جهاز الطول, جهاز التطويل, جهاز الطول, قصر القامة, آلام الظهر, ترهل البطن, علاج, الطول, تطويل, كيف اطول, جهاز TAL, علاج انحناء القامة, علاج بروز البطن, تطويل القامة, علاج القصر, زيادة الطول طبيعي, علاج مشاكل الطول, جهاز TAL7cm, منتج زيادة الطول, علاج قصر القامة للكبار, جهاز تطويل العمود الفقري',
   authors: [{ name: 'TAL Height Device' }],
   creator: 'TAL Height Device',
   publisher: 'TAL Height Device',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'جهاز زيادة الطول TAL - علاج قصر القامة وزيادة الطول 7 سم',
+    title: 'جهاز زيادة الطول TAL - جهاز الطول',
     description: 'جهاز TAL لزيادة الطول وعلاج قصر القامة. يزيد طولك 7 سم وأكثر، يعالج آلام الظهر، يخلصك من بروز البطن، يعالج انحناء القامة.',
     url: 'https://tal7cm.com',
     siteName: 'جهاز زيادة الطول TAL',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'جهاز زيادة الطول TAL - علاج قصر القامة وزيادة الطول 7 سم',
+    title: 'جهاز زيادة الطول TAL - جهاز الطول',
     description: 'جهاز TAL لزيادة الطول وعلاج قصر القامة. يزيد طولك 7 سم وأكثر، يعالج آلام الظهر، يخلصك من بروز البطن، يعالج انحناء القامة.',
     images: ['/hero-banner.png'],
   },
@@ -105,8 +105,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "MedicalDevice",
-              "name": "جهاز زيادة الطول TAL",
-              "description": "جهاز طبي لزيادة الطول وعلاج قصر القامة، يزيد الطول 7 سم وأكثر، يعالج آلام الظهر وانحناء القامة",
+              "name": "جهاز زيادة الطول TAL - جهاز الطول",
+              "description": "جهاز طبي لزيادة الطول وعلاج قصر القامة، يزيد الطول 7 سم وأكثر، يعالج آلام الظهر وانحناء القامة وترهل البطن",
               "brand": {
                 "@type": "Brand",
                 "name": "TAL"
@@ -117,7 +117,7 @@ export default function RootLayout({
               },
               "category": "Medical Device",
               "applicationCategory": "Therapeutic Device",
-              "indication": "علاج قصر القامة، زيادة الطول، علاج آلام الظهر، علاج انحناء القامة",
+              "indication": "علاج قصر القامة، زيادة الطول، علاج آلام الظهر، علاج انحناء القامة، علاج ترهل البطن، تطويل القامة",
               "url": "https://tal7cm.com",
               "image": "https://tal7cm.com/hero-banner.png",
               "logo": "https://tal7cm.com/cropped-tallogo-1.png",

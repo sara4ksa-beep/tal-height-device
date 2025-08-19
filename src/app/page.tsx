@@ -30,6 +30,13 @@ export default function HomePage() {
               <span className="text-black">{language === 'ar' ? 'الآن يمكنك تحقيق حلمك!' : 'Now you can achieve your dream!'}</span>
             </p>
           </div>
+          {language === 'ar' && (
+            <div className="text-center mb-4">
+              <p className="text-lg md:text-xl text-white font-semibold drop-shadow-lg">
+                جهاز التطويل • جهاز الطول • علاج قصر القامة • آلام الظهر • ترهل البطن
+              </p>
+            </div>
+          )}
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center mb-2 sm:mb-3 md:mb-4 lg:mb-6 xl:mb-8">
             <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm sm:text-base md:text-lg px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-2.5 md:py-3 lg:py-4 text-center inline-block w-auto sm:w-auto max-w-[180px] sm:max-w-[200px] md:max-w-none mx-auto sm:mx-0">
               {t('orderNow')}
@@ -124,20 +131,48 @@ export default function HomePage() {
                       <li>• يزيد الطول 7 سم وأكثر</li>
                       <li>• يعالج قصر القامة للكبار والصغار</li>
                       <li>• يعالج آلام الظهر وانحناء القامة</li>
-                      <li>• يخلصك من بروز البطن</li>
-                      <li>• منتج معتمد لعلاج مشاكل الطول</li>
+                      <li>• يخلصك من بروز البطن وترهل البطن</li>
+                      <li>• منتج معتمد لعلاج مشاكل الطول والتطويل</li>
                     </>
                   ) : (
                     <>
                       <li>• Increases height by 7 cm or more</li>
                       <li>• Treats short stature for adults and children</li>
                       <li>• Treats back pain and posture problems</li>
-                      <li>• Eliminates belly protrusion</li>
+                      <li>• Eliminates belly protrusion and sagging</li>
                       <li>• Certified product for treating height problems</li>
                     </>
                   )}
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hidden SEO Keywords Section - Visible to search engines but hidden from users */}
+      <section className="sr-only" aria-hidden="true">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2>جهاز التطويل جهاز الطول قصر القامة آلام الظهر ترهل البطن علاج الطول تطويل كيف اطول</h2>
+            <p>جهاز زيادة الطول TAL هو الحل الأمثل لعلاج قصر القامة وزيادة الطول 7 سم وأكثر. يعالج آلام الظهر وانحناء القامة وترهل البطن. منتج معتمد وموثوق لعلاج مشاكل الطول والتطويل.</p>
+            <div>
+              <h3>جهاز التطويل</h3>
+              <p>جهاز متخصص لزيادة الطول وعلاج قصر القامة</p>
+              <h3>جهاز الطول</h3>
+              <p>حل فعال لقصر القامة وزيادة الطول</p>
+              <h3>قصر القامة</h3>
+              <p>مشكلة شائعة قابلة للعلاج بجهاز TAL</p>
+              <h3>آلام الظهر</h3>
+              <p>علاج فعال لآلام الظهر وانحناء القامة</p>
+              <h3>ترهل البطن</h3>
+              <p>حل مشكلة ترهل البطن وبروز البطن</p>
+              <h3>علاج</h3>
+              <p>علاج شامل لمشاكل الطول والتطويل</p>
+              <h3>الطول</h3>
+              <p>زيادة الطول بشكل طبيعي وآمن</p>
+              <h3>كيف اطول</h3>
+              <p>إجابة شاملة لسؤال كيف اطول باستخدام جهاز TAL</p>
             </div>
           </div>
         </div>
@@ -357,6 +392,12 @@ export default function HomePage() {
             <span className="text-base md:text-lg font-semibold text-black">{t('heightDevice')} TAL</span>
           </div>
           <p className="text-base md:text-lg text-black">{t('footerText')}</p>
+          {/* Hidden SEO keywords in footer */}
+          {language === 'ar' && (
+            <div className="sr-only" aria-hidden="true">
+              <p>كلمات مفتاحية: جهاز التطويل جهاز الطول قصر القامة آلام الظهر ترهل البطن علاج الطول تطويل كيف اطول</p>
+            </div>
+          )}
         </div>
       </footer>
     </div>
