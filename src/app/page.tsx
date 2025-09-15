@@ -37,7 +37,7 @@ export default function HomePage() {
                 <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 text-base shadow-lg hover:shadow-xl mx-auto">
                   {t('orderNow')}
                 </a>
-                <span className="text-white font-semibold text-base drop-shadow-2xl text-center" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+                <span className="text-white font-semibold text-base drop-shadow-2xl text-center" style={{ textShadow: '3px 3px 12px rgba(0,0,0,1), 1px 1px 4px rgba(0,0,0,0.8)' }}>
                   يزيد طولك ٧ سم و اكثر
                 </span>
               </div>
@@ -57,7 +57,7 @@ export default function HomePage() {
             </div>
             
             <div className="mt-4 sm:mt-6">
-              <p className="mt-6 text-white font-semibold text-sm sm:text-base drop-shadow-2xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+              <p className="mt-6 text-white font-semibold text-sm sm:text-base drop-shadow-2xl" style={{ textShadow: '3px 3px 12px rgba(0,0,0,1), 1px 1px 4px rgba(0,0,0,0.8)' }}>
                 يزيد طولك ٧ سم و اكثر
               </p>
             </div>
