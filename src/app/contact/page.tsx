@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 import * as Form from '@radix-ui/react-form';
-import * as Select from '@radix-ui/react-select';
-import { CheckIcon, ChevronDownIcon } from 'lucide-react';
+import { CheckIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';

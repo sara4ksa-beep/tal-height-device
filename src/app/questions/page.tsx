@@ -97,20 +97,17 @@ export default function QuestionsPage() {
         {/* Contact Section */}
         <div className="text-center mt-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            {language === 'ar' ? 'لم تجد إجابة لسؤالك؟' : 'Didn\'t find an answer to your question?'}
+            لم تجد إجابة لسؤالك؟
           </h2>
           <p className="text-gray-600 mb-6">
-            {language === 'ar' 
-              ? 'يمكنك التواصل معنا مباشرة للحصول على إجابة فورية'
-              : 'You can contact us directly for an immediate answer'
-            }
+            يمكنك التواصل معنا مباشرة للحصول على إجابة فورية
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="btn-primary text-lg px-8 py-4 inline-block"
             >
-              {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+              تواصل معنا
             </Link>
             <a
               href="https://new-mall.com/tal/p364801713"
@@ -118,7 +115,7 @@ export default function QuestionsPage() {
               rel="noopener noreferrer"
               className="btn-secondary text-lg px-8 py-4 inline-block"
             >
-              {language === 'ar' ? 'اطلبه الآن' : 'Order Now'}
+              اطلبه الآن
             </a>
           </div>
         </div>
