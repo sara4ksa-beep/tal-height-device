@@ -33,16 +33,14 @@ export default function HomePage() {
               {t('heroTitle')}
             </h1>
             
-            <div className="mb-6">
-              <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-lg transition-colors duration-200 text-xs w-auto max-w-[140px] mx-auto block">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition-colors duration-200 text-xs shadow-lg hover:shadow-xl">
                 {t('orderNow')}
               </a>
+              <p className="text-white font-semibold text-sm drop-shadow-2xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+                يزيد طولك ٧ سم و اكثر
+              </p>
             </div>
-            
-            
-            <p className="text-white font-semibold text-sm drop-shadow-lg">
-              يزيد طولك ٧ سم و اكثر
-            </p>
           </div>
           
           {/* Desktop/Tablet Layout */}
@@ -52,13 +50,13 @@ export default function HomePage() {
             </h1>
             
             <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-              <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base w-auto max-w-[200px] sm:max-w-none">
+              <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base w-auto max-w-[200px] sm:max-w-none shadow-lg hover:shadow-xl">
                 {t('orderNow')}
               </a>
             </div>
             
             <div className="mt-4 sm:mt-6">
-              <p className="mt-6 text-white font-semibold text-sm sm:text-base drop-shadow-lg">
+              <p className="mt-6 text-white font-semibold text-sm sm:text-base drop-shadow-2xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
                 يزيد طولك ٧ سم و اكثر
               </p>
             </div>
@@ -334,7 +332,7 @@ export default function HomePage() {
             {t('ctaSubtitle')}
           </p>
           <div className="flex-responsive justify-center mb-6 sm:mb-8">
-            <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
               {t('ctaButton')}
             </a>
           </div>

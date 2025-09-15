@@ -113,7 +113,7 @@ export default function QuestionsPage() {
               href="https://new-mall.com/tal/p364801713"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary text-lg px-8 py-4 inline-block"
+              className="bg-black hover:bg-green-600 text-white font-bold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-block"
             >
               اطلبه الآن
             </a>
