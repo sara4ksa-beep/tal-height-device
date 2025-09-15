@@ -121,19 +121,108 @@
   .hero-section {
     padding-top: 2rem;
     padding-bottom: 2rem;
-    min-height: 60vh;
+    min-height: 70vh;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
   }
   
-  /* Better mobile hero background */
+  /* Better mobile hero background - Landscape style */
   @media (max-width: 640px) {
     .hero-section {
       background-size: cover !important;
       background-position: center center !important;
       background-attachment: scroll !important;
+      min-height: 40vh;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      position: relative;
+      aspect-ratio: 16/9;
+      background-repeat: no-repeat !important;
     }
+    
+    .hero-section .container-responsive {
+      max-width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  
+  /* Tablet hero improvements - Landscape style */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .hero-section {
+      min-height: 60vh;
+      aspect-ratio: 16/9;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      filter: brightness(1.05) contrast(1.1) saturate(1.1);
+    }
+  }
+  
+  /* Desktop hero improvements - Landscape style */
+  @media (min-width: 1025px) {
+    .hero-section {
+      min-height: 70vh;
+      aspect-ratio: 16/9;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      filter: brightness(1.05) contrast(1.1) saturate(1.1);
+    }
+  }
+  
+  /* Hero image quality improvements */
+  .hero-section {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+  
+  /* Mobile image clarity improvements */
+  @media (max-width: 640px) {
+    .hero-section {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      image-rendering: optimize-contrast;
+      -ms-interpolation-mode: nearest-neighbor;
+      background-image: url('/talocp.png') !important;
+      background-size: cover !important;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      background-attachment: scroll !important;
+      min-height: 50vh;
+      aspect-ratio: 16/9;
+    }
+  }
+  
+  /* Ensure hero image is always visible and clear */
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+  }
+  
+  /* Enhanced image quality for all devices */
+  .hero-section {
+    background-image: url('/talocp.png') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    filter: brightness(1.05) contrast(1.1) saturate(1.1);
   }
   
   /* Mobile text improvements */

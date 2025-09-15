@@ -19,13 +19,15 @@ export default function HomePage() {
     <div className="min-h-screen bg-white" dir={dir}>
       {/* Hero Section */}
       <section className="relative bg-cover bg-center bg-no-repeat text-white hero-section spacing-responsive" style={{ 
-        backgroundImage: 'url(/hero-banner.png)',
+        backgroundImage: 'url(/talocp.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-        backgroundAttachment: 'scroll'
+        backgroundAttachment: 'scroll',
+        minHeight: '70vh',
+        backgroundRepeat: 'no-repeat'
       }}>
         
-        <div className="container-responsive text-center relative z-10">
+        <div className="container-responsive text-center relative z-20">
           <h1 className="text-responsive-xl font-bold mb-4 sm:mb-6 md:mb-8 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
             {t('heroTitle')}
           </h1>
