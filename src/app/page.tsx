@@ -18,38 +18,64 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white" dir={dir}>
       {/* Hero Section */}
-      <section className="relative bg-cover bg-center bg-no-repeat text-white hero-section spacing-responsive" style={{ 
+      <section className="relative bg-cover bg-center bg-no-repeat text-white hero-section" style={{ 
         backgroundImage: 'url(/talocp.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundAttachment: 'scroll',
-        minHeight: '70vh',
         backgroundRepeat: 'no-repeat'
       }}>
         
-        <div className="container-responsive text-center relative z-20">
-          <h1 className="text-responsive-xl font-bold mb-4 sm:mb-6 md:mb-8 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-            {t('heroTitle')}
-          </h1>
-          <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-            <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base w-auto max-w-[200px] sm:max-w-none">
-              {t('orderNow')}
-            </a>
+        <div className="container mx-auto px-4 py-8 sm:py-12 md:py-16 lg:py-20 text-center relative z-20">
+          {/* Mobile Layout */}
+          <div className="block sm:hidden">
+            <h1 className="text-2xl font-bold mb-6 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+              {t('heroTitle')}
+            </h1>
+            
+            <div className="mb-6">
+              <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-lg transition-colors duration-200 text-xs w-auto max-w-[140px] mx-auto block">
+                {t('orderNow')}
+              </a>
+            </div>
+            
+            <div className="mb-4">
+              <button
+                onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
+                className="px-4 py-2 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg text-sm"
+              >
+                {language === 'ar' ? 'English' : 'العربية'}
+              </button>
+            </div>
+            
+            <p className="text-white font-semibold text-sm drop-shadow-lg">
+              يزيد طولك ٧ سم و اكثر
+            </p>
           </div>
           
-          {/* Language Switch Button */}
-          <div className="mt-4 sm:mt-6">
-            <button
-              onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-              className="px-4 py-2 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg text-sm sm:text-base"
-            >
-              {language === 'ar' ? 'English' : 'العربية'}
-            </button>
-            {language === 'ar' && (
-              <p className="mt-2 text-white font-semibold text-sm sm:text-base drop-shadow-lg">
+          {/* Desktop/Tablet Layout */}
+          <div className="hidden sm:block">
+            <h1 className="text-responsive-xl font-bold mb-4 sm:mb-6 md:mb-8 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+              {t('heroTitle')}
+            </h1>
+            
+            <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
+              <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base w-auto max-w-[200px] sm:max-w-none">
+                {t('orderNow')}
+              </a>
+            </div>
+            
+            <div className="mt-4 sm:mt-6">
+              <button
+                onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
+                className="px-4 py-2 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg text-sm sm:text-base"
+              >
+                {language === 'ar' ? 'English' : 'العربية'}
+              </button>
+              <p className="mt-6 text-white font-semibold text-sm sm:text-base drop-shadow-lg">
                 يزيد طولك ٧ سم و اكثر
               </p>
-            )}
+            </div>
           </div>
         </div>
       </section>
