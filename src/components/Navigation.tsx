@@ -29,8 +29,8 @@ const Navigation = () => {
   };
 
   return (
-    <header className="bg-header-footer text-black shadow-lg relative">
-      <div className="container mx-auto px-4 py-4">
+    <header className="bg-header-footer text-black shadow-lg relative mobile-nav">
+      <div className="container-responsive py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -42,12 +42,12 @@ const Navigation = () => {
                 height={48}
               />
             </div>
-            <span className="text-sm sm:text-lg md:text-xl font-bold text-black mr-4 sm:mr-8">{t('heightDevice')}</span>
+            <span className="text-sm sm:text-base md:text-lg font-bold text-black mr-2 sm:mr-4 md:mr-8">{t('heightDevice')}</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:block">
-            <ul className="flex items-center gap-16">
+            <ul className="flex items-center gap-8 xl:gap-16">
               {navItems.map((item) => (
                 <li key={item.href}>
                   {item.external ? (
@@ -72,7 +72,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={toggleMobileMenu}
-            className="lg:hidden p-2 rounded-md text-black hover:bg-black/10 transition-colors"
+            className="lg:hidden p-3 rounded-md text-black hover:bg-black/10 transition-colors"
             aria-label="Toggle mobile menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,8 +87,30 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-black/10">
-            <div className="flex flex-col space-y-2 pt-4">
+          <div className="lg:hidden fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out">
+            {/* Click outside to close */}
+            <div 
+              className="fixed inset-0 -z-10"
+              onClick={toggleMobileMenu}
+            />
+            <div className="flex flex-col h-full">
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                <span className="text-lg font-bold text-black">القائمة</span>
+                <button 
+                  onClick={toggleMobileMenu}
+                  className="p-2 rounded-md text-black hover:bg-gray-100 transition-colors"
+                  aria-label="Close mobile menu"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              
+              {/* Mobile Menu Content */}
+              <div className="flex-1 overflow-y-auto p-4">
+                <div className="flex flex-col space-y-1">
               {navItems.map((item) => (
                 <div key={item.href}>
                   {item.external ? (
@@ -97,7 +119,7 @@ const Navigation = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={cn(
-                        'block px-4 py-3 rounded-lg text-base font-bold transition-colors duration-200',
+                        'block px-4 py-4 rounded-lg text-base font-bold transition-colors duration-200',
                         'text-black/90 hover:text-black hover:bg-black/10'
                       )}
                       onClick={() => setIsMobileMenuOpen(false)}
@@ -108,7 +130,7 @@ const Navigation = () => {
                     <Link
                       href={item.href}
                       className={cn(
-                        'block px-4 py-3 rounded-lg text-base font-bold transition-colors duration-200',
+                        'block px-4 py-4 rounded-lg text-base font-bold transition-colors duration-200',
                         pathname === item.href
                           ? 'bg-black/20 text-black'
                           : 'text-black/90 hover:text-black hover:bg-black/10'
@@ -127,10 +149,12 @@ const Navigation = () => {
                   toggleLanguage();
                   setIsMobileMenuOpen(false);
                 }}
-                className="block px-4 py-3 rounded-lg text-base font-bold bg-white/20 hover:bg-white/30 text-black transition-colors duration-200 border border-black/20"
+                className="block px-4 py-4 rounded-lg text-base font-bold bg-blue-50 hover:bg-blue-100 text-black transition-colors duration-200 border border-blue-200 mt-4"
               >
                 {t('languageSwitch')}
               </button>
+                </div>
+              </div>
             </div>
           </div>
         )}

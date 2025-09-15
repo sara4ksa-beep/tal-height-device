@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export const metadata: Metadata = {
-  title: 'جهاز زيادة الطول TAL - جهاز الطول | TAL7cm.com',
+  title: 'جهاز زيادة الطول TAL | يعطيك 7 سنتي زيادة في طولك',
   description: 'جهاز TAL لزيادة الطول وعلاج قصر القامة. يزيد طولك 7 سم وأكثر، يعالج آلام الظهر، يخلصك من بروز البطن، يعالج انحناء القامة. منتج مجرب وموثوق لعلاج مشاكل الطول.',
   keywords: 'جهاز زيادة الطول, جهاز الطول, جهاز التطويل, جهاز الطول, قصر القامة, آلام الظهر, ترهل البطن, علاج, الطول, تطويل, كيف اطول, جهاز TAL, علاج انحناء القامة, علاج بروز البطن, تطويل القامة, علاج القصر, زيادة الطول طبيعي, علاج مشاكل الطول, جهاز TAL7cm, منتج زيادة الطول, علاج قصر القامة للكبار, جهاز تطويل العمود الفقري',
   authors: [{ name: 'TAL Height Device' }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'جهاز زيادة الطول TAL - جهاز الطول',
+    title: 'جهاز زيادة الطول TAL | يعطيك 7 سنتي زيادة في طولك',
     description: 'جهاز TAL لزيادة الطول وعلاج قصر القامة. يزيد طولك 7 سم وأكثر، يعالج آلام الظهر، يخلصك من بروز البطن، يعالج انحناء القامة.',
     url: 'https://tal7cm.com',
     siteName: 'جهاز زيادة الطول TAL',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'جهاز زيادة الطول TAL - جهاز الطول',
+    title: 'جهاز زيادة الطول TAL | يعطيك 7 سنتي زيادة في طولك',
     description: 'جهاز TAL لزيادة الطول وعلاج قصر القامة. يزيد طولك 7 سم وأكثر، يعالج آلام الظهر، يخلصك من بروز البطن، يعالج انحناء القامة.',
     images: ['/hero-banner.png'],
   },
@@ -68,6 +68,13 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <head>
+        {/* Essential Mobile Meta Tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="جهاز زيادة الطول TAL" />
+        
         <link rel="canonical" href="https://tal7cm.com" />
         <link rel="alternate" hrefLang="ar" href="https://tal7cm.com" />
         <link rel="alternate" hrefLang="en" href="https://tal7cm.com/en" />
@@ -105,7 +112,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "MedicalDevice",
-              "name": "جهاز زيادة الطول TAL - جهاز الطول",
+              "name": "جهاز زيادة الطول TAL | يعطيك 7 سنتي زيادة في طولك",
               "description": "جهاز طبي لزيادة الطول وعلاج قصر القامة، يزيد الطول 7 سم وأكثر، يعالج آلام الظهر وانحناء القامة وترهل البطن",
               "brand": {
                 "@type": "Brand",
