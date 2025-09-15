@@ -11,7 +11,7 @@ import Image from 'next/image';
 const Navigation = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   const navItems = [
     { href: '/', label: t('home') },
@@ -24,9 +24,6 @@ const Navigation = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'ar' ? 'en' : 'ar');
-  };
 
   return (
     <header className="bg-header-footer text-black shadow-lg relative mobile-nav">
@@ -143,16 +140,6 @@ const Navigation = () => {
                 </div>
               ))}
               
-              {/* Mobile Language Switch Button */}
-              <button
-                onClick={() => {
-                  toggleLanguage();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="block px-4 py-4 rounded-lg text-base font-bold bg-blue-50 hover:bg-blue-100 text-black transition-colors duration-200 border border-blue-200 mt-4"
-              >
-                {t('languageSwitch')}
-              </button>
                 </div>
               </div>
             </div>

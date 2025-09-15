@@ -9,7 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 
 export default function ContactPage() {
-  const { language, dir } = useLanguage();
+  const { dir } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,7 +56,7 @@ export default function ContactPage() {
       }
     } catch (error) {
       console.error('Error sending email:', error);
-      alert(language === 'ar' ? 'حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى.' : 'An error occurred while sending the message. Please try again.');
+      alert('حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى.');
     } finally {
       setIsSubmitting(false);
     }
@@ -72,16 +72,13 @@ export default function ContactPage() {
                 <CheckIcon className="w-10 h-10 text-green-600" />
               </div>
               <h1 className="text-3xl font-bold text-gray-900 mb-4">
-                {language === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message has been sent successfully!'}
+                تم إرسال رسالتك بنجاح!
               </h1>
               <p className="text-lg text-gray-600 mb-6">
-                {language === 'ar' 
-                  ? 'تم إرسال رسالتك إلى فريقنا. سنقوم بالرد عليك في أقرب وقت ممكن.'
-                  : 'Your message has been sent to our team. We will respond to you as soon as possible.'
-                }
+                تم إرسال رسالتك إلى فريقنا. سنقوم بالرد عليك في أقرب وقت ممكن.
               </p>
               <Link href="/" className="btn-primary">
-                {language === 'ar' ? 'العودة للصفحة الرئيسية' : 'Back to Home'}
+                العودة للصفحة الرئيسية
               </Link>
             </div>
           </div>
@@ -96,13 +93,10 @@ export default function ContactPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+            تواصل معنا
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {language === 'ar'
-              ? 'نحن هنا لمساعدتك! يمكنك التواصل معنا عبر النموذج أدناه أو استخدام معلومات الاتصال المباشرة'
-              : 'We are here to help you! You can contact us through the form below or use direct contact information'
-            }
+            نحن هنا لمساعدتك! يمكنك التواصل معنا عبر النموذج أدناه أو استخدام معلومات الاتصال المباشرة
           </p>
         </div>
 
@@ -111,14 +105,14 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="bg-white rounded-xl shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                {language === 'ar' ? 'أرسل لنا رسالة' : 'Send us a message'}
+                أرسل لنا رسالة
               </h2>
               
               <Form.Root onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <Form.Field name="name" className="space-y-2">
                     <Form.Label className="text-sm font-medium text-gray-700">
-                      {language === 'ar' ? 'الاسم' : 'Name'}
+                      الاسم
                     </Form.Label>
                     <Form.Control asChild>
                       <input
@@ -130,13 +124,13 @@ export default function ContactPage() {
                       />
                     </Form.Control>
                     <Form.Message match="valueMissing" className="text-red-500 text-sm">
-                      {language === 'ar' ? 'الاسم مطلوب' : 'Name is required'}
+                      الاسم مطلوب
                     </Form.Message>
                   </Form.Field>
 
                   <Form.Field name="phone" className="space-y-2">
                     <Form.Label className="text-sm font-medium text-gray-700">
-                      {language === 'ar' ? 'رقم الهاتف' : 'Phone Number'}
+                      رقم الهاتف
                     </Form.Label>
                     <Form.Control asChild>
                       <input
@@ -151,7 +145,7 @@ export default function ContactPage() {
 
                 <Form.Field name="email" className="space-y-2">
                   <Form.Label className="text-sm font-medium text-gray-700">
-                    {language === 'ar' ? 'البريد الإلكتروني *' : 'Email *'}
+                    البريد الإلكتروني *
                   </Form.Label>
                   <Form.Control asChild>
                     <input
@@ -163,29 +157,29 @@ export default function ContactPage() {
                     />
                   </Form.Control>
                   <Form.Message match="valueMissing" className="text-red-500 text-sm">
-                    {language === 'ar' ? 'البريد الإلكتروني مطلوب' : 'Email is required'}
+                    البريد الإلكتروني مطلوب
                   </Form.Message>
                   <Form.Message match="typeMismatch" className="text-red-500 text-sm">
-                    {language === 'ar' ? 'يرجى إدخال بريد إلكتروني صحيح' : 'Please enter a valid email'}
+                    يرجى إدخال بريد إلكتروني صحيح
                   </Form.Message>
                 </Form.Field>
 
                 <Form.Field name="message" className="space-y-2">
                   <Form.Label className="text-sm font-medium text-gray-700">
-                    {language === 'ar' ? 'الرسالة *' : 'Message *'}
+                    الرسالة *
                   </Form.Label>
                   <Form.Control asChild>
                     <textarea
                       required
                       rows={5}
                       className="input-field resize-none"
-                      placeholder={language === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
+                      placeholder='اكتب رسالتك هنا...'
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
                     />
                   </Form.Control>
                   <Form.Message match="valueMissing" className="text-red-500 text-sm">
-                    {language === 'ar' ? 'الرسالة مطلوبة' : 'Message is required'}
+                    الرسالة مطلوبة
                   </Form.Message>
                 </Form.Field>
 
@@ -200,10 +194,7 @@ export default function ContactPage() {
                         : 'btn-primary'
                     )}
                   >
-                    {isSubmitting 
-                      ? (language === 'ar' ? 'جاري الإرسال...' : 'Sending...')
-                      : (language === 'ar' ? 'أرسل الرسالة' : 'Send Message')
-                    }
+                    {isSubmitting ? 'جاري الإرسال...' : 'أرسل الرسالة'}
                   </button>
                 </Form.Submit>
               </Form.Root>
@@ -214,29 +205,23 @@ export default function ContactPage() {
               {/* FAQ Link */}
               <div className="bg-blue-50 rounded-xl p-6 text-center">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  {language === 'ar' ? 'لديك أسئلة؟' : 'Have questions?'}
+                  لديك أسئلة؟
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  {language === 'ar' 
-                    ? 'اطلع على الأسئلة الشائعة للحصول على إجابات سريعة'
-                    : 'Check out the FAQ for quick answers'
-                  }
+                  اطلع على الأسئلة الشائعة للحصول على إجابات سريعة
                 </p>
                 <Link href="/questions" className="btn-secondary">
-                  {language === 'ar' ? 'الأسئلة الشائعة' : 'FAQ'}
+                  الأسئلة الشائعة
                 </Link>
               </div>
 
               {/* Order Now Box */}
               <div className="bg-green-50 rounded-xl p-6 text-center border border-green-200">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  {language === 'ar' ? 'أو اطلبه الآن' : 'Or Order Now'}
+                  أو اطلبه الآن
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  {language === 'ar' 
-                    ? 'بالضغط على الزر أدناه'
-                    : 'By clicking the button below'
-                  }
+                  بالضغط على الزر أدناه
                 </p>
                 <a 
                   href="https://new-mall.com/tal/p364801713" 
@@ -244,7 +229,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer" 
                   className="btn-primary inline-block"
                 >
-                  {language === 'ar' ? 'اطلبه الآن' : 'Order Now'}
+                  اطلبه الآن
                 </a>
               </div>
             </div>

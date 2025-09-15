@@ -13,7 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default function HomePage() {
-  const { t, dir, language, setLanguage } = useLanguage();
+  const { t, dir } = useLanguage();
 
   return (
     <div className="min-h-screen bg-white" dir={dir}>
@@ -39,14 +39,6 @@ export default function HomePage() {
               </a>
             </div>
             
-            <div className="mb-4">
-              <button
-                onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-                className="px-4 py-2 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg text-sm"
-              >
-                {language === 'ar' ? 'English' : 'العربية'}
-              </button>
-            </div>
             
             <p className="text-white font-semibold text-sm drop-shadow-lg">
               يزيد طولك ٧ سم و اكثر
@@ -66,12 +58,6 @@ export default function HomePage() {
             </div>
             
             <div className="mt-4 sm:mt-6">
-              <button
-                onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-                className="px-4 py-2 bg-black/80 hover:bg-black text-white font-bold rounded-lg transition-colors duration-200 border-2 border-white shadow-lg text-sm sm:text-base"
-              >
-                {language === 'ar' ? 'English' : 'العربية'}
-              </button>
               <p className="mt-6 text-white font-semibold text-sm sm:text-base drop-shadow-lg">
                 يزيد طولك ٧ سم و اكثر
               </p>
@@ -151,23 +137,13 @@ export default function HomePage() {
               <div className="card">
                 <h3 className="text-responsive-lg font-bold text-gray-900 mb-3 sm:mb-4">{t('seo2Title')}</h3>
                 <ul className="text-responsive text-gray-700 space-y-2">
-                  {language === 'ar' ? (
-                    <>
-                      <li>• يزيد الطول 7 سم وأكثر</li>
-                      <li>• يعالج قصر القامة للكبار والصغار</li>
-                      <li>• يعالج آلام الظهر وانحناء القامة</li>
-                      <li>• يخلصك من بروز البطن وترهل البطن</li>
-                      <li>• منتج معتمد لعلاج مشاكل الطول والتطويل</li>
-                    </>
-                  ) : (
-                    <>
-                      <li>• Increases height by 7 cm or more</li>
-                      <li>• Treats short stature for adults and children</li>
-                      <li>• Treats back pain and posture problems</li>
-                      <li>• Eliminates belly protrusion and sagging</li>
-                      <li>• Certified product for treating height problems</li>
-                    </>
-                  )}
+                  <>
+                    <li>• يزيد الطول 7 سم وأكثر</li>
+                    <li>• يعالج قصر القامة للكبار والصغار</li>
+                    <li>• يعالج آلام الظهر وانحناء القامة</li>
+                    <li>• يخلصك من بروز البطن وترهل البطن</li>
+                    <li>• منتج معتمد لعلاج مشاكل الطول والتطويل</li>
+                  </>
                 </ul>
               </div>
             </div>
@@ -255,7 +231,7 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
-                      {language === 'ar' ? 'م' : 'M'}
+                      م
                     </div>
                     <div className="mr-3">
                       <h4 className="font-semibold text-gray-900">{t('testimonial1.name')}</h4>
@@ -279,7 +255,7 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-lg">
-                      {language === 'ar' ? 'ح' : 'H'}
+                      ح
                     </div>
                     <div className="mr-3">
                       <h4 className="font-semibold text-gray-900">{t('testimonial2.name')}</h4>
@@ -303,7 +279,7 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg">
-                      {language === 'ar' ? 'ل' : 'L'}
+                      ل
                     </div>
                     <div className="mr-3">
                       <h4 className="font-semibold text-gray-900">{t('testimonial3.name')}</h4>
@@ -327,7 +303,7 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-lg">
-                      {language === 'ar' ? 'خ' : 'K'}
+                      خ
                     </div>
                     <div className="mr-3">
                       <h4 className="font-semibold text-gray-900">{t('testimonial4.name')}</h4>
@@ -418,11 +394,9 @@ export default function HomePage() {
           </div>
           <p className="text-responsive text-black">{t('footerText')}</p>
           {/* Hidden SEO keywords in footer */}
-          {language === 'ar' && (
-            <div className="sr-only" aria-hidden="true">
-              <p>كلمات مفتاحية: جهاز التطويل جهاز الطول قصر القامة آلام الظهر ترهل البطن علاج الطول تطويل كيف اطول</p>
-            </div>
-          )}
+          <div className="sr-only" aria-hidden="true">
+            <p>كلمات مفتاحية: جهاز التطويل جهاز الطول قصر القامة آلام الظهر ترهل البطن علاج الطول تطويل كيف اطول</p>
+          </div>
         </div>
       </footer>
     </div>

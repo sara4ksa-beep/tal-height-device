@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { translations } from '@/lib/translations';
 
-type Language = 'ar' | 'en';
+type Language = 'ar';
 
 interface LanguageContextType {
   language: Language;
@@ -26,25 +26,22 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [language, setLanguage] = useState<Language>('ar');
 
   useEffect(() => {
-    // Load language from localStorage on mount
-    const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage && (savedLanguage === 'ar' || savedLanguage === 'en')) {
-      setLanguage(savedLanguage);
-    }
+    // Language is always Arabic
+    setLanguage('ar');
   }, []);
 
   useEffect(() => {
     // Save language to localStorage when it changes
     localStorage.setItem('language', language);
     
-    // Update document direction
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = language;
+    // Update document direction - always RTL for Arabic
+    document.documentElement.dir = 'rtl';
+    document.documentElement.lang = 'ar';
   }, [language]);
 
   const t = (key: string): string | string[] => {
     const keys = key.split('.');
-    let value: unknown = translations[language];
+    let value: unknown = translations;
     
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
@@ -57,7 +54,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return value as string | string[]; // Return the actual value (string, array, etc.)
   };
 
-  const dir = language === 'ar' ? 'rtl' : 'ltr';
+  const dir = 'rtl';
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, dir }}>
