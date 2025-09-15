@@ -31,12 +31,6 @@ export default function HomePage() {
           <h1 className="text-responsive-xl font-bold mb-4 sm:mb-6 md:mb-8 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
             {t('heroTitle')}
           </h1>
-          <div className="inline-block bg-header-footer px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 rounded-lg mb-4 sm:mb-6 md:mb-8 w-full max-w-sm mx-auto">
-            <p className="text-sm sm:text-base md:text-lg font-bold leading-relaxed">
-              <span className="text-red-600 block mb-1 sm:mb-2">{language === 'ar' ? 'هل حلمت بزيادة طولك؟' : 'Have you dreamed of increasing your height?'}</span>
-              <span className="text-black">{language === 'ar' ? 'الآن يمكنك تحقيق حلمك!' : 'Now you can achieve your dream!'}</span>
-            </p>
-          </div>
           <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
             <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base w-auto max-w-[200px] sm:max-w-none">
               {t('orderNow')}
@@ -51,6 +45,11 @@ export default function HomePage() {
             >
               {language === 'ar' ? 'English' : 'العربية'}
             </button>
+            {language === 'ar' && (
+              <p className="mt-2 text-white font-semibold text-sm sm:text-base drop-shadow-lg">
+                يزيد طولك ٧ سم و اكثر
+              </p>
+            )}
           </div>
         </div>
       </section>

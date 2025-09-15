@@ -8,7 +8,7 @@ export const translations = {
     heightDevice: 'جهاز زيادة الطول',
     
     // Hero Section
-    heroTitle: 'جهاز زيادة الطول TAL - جهاز الطول',
+    heroTitle: 'جهاز زيادة الطول TAL',
     heroSubtitle: 'هل حلمت بزيادة طولك؟ الآن يمكنك تحقيق حلمك!',
     orderNow: 'اطلبه الآن',
     faq: 'الأسئلة الشائعة',
