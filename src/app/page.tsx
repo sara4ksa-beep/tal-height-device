@@ -29,17 +29,18 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-8 sm:py-12 md:py-16 lg:py-20 text-center relative z-20">
           {/* Mobile Layout */}
           <div className="block sm:hidden">
-            <h1 className="text-2xl font-bold mb-6 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-              {t('heroTitle')}
-            </h1>
-            
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-2 px-3 rounded-lg transition-colors duration-200 text-xs shadow-lg hover:shadow-xl">
-                {t('orderNow')}
-              </a>
-              <p className="text-white font-semibold text-sm drop-shadow-2xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-                يزيد طولك ٧ سم و اكثر
-              </p>
+            <div className="text-center mb-6">
+              <h1 className="text-2xl font-bold mb-6 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+                {t('heroTitle')}
+              </h1>
+              <div className="flex flex-col items-center justify-center gap-4">
+                <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 text-base shadow-lg hover:shadow-xl mx-auto">
+                  {t('orderNow')}
+                </a>
+                <span className="text-white font-semibold text-base drop-shadow-2xl text-center" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+                  يزيد طولك ٧ سم و اكثر
+                </span>
+              </div>
             </div>
           </div>
           
