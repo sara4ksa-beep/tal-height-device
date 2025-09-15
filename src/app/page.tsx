@@ -29,7 +29,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-8 sm:py-12 md:py-16 lg:py-20 text-center relative z-20">
           {/* Mobile Layout */}
           <div className="block sm:hidden">
-            <div className="text-center mb-6">
+            <div className="text-center mb-6 pt-16">
               <h1 className="text-2xl font-bold mb-6 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
                 {t('heroTitle')}
               </h1>
@@ -45,7 +45,7 @@ export default function HomePage() {
           </div>
           
           {/* Desktop/Tablet Layout */}
-          <div className="hidden sm:block">
+          <div className="hidden sm:block pt-16">
             <h1 className="text-responsive-xl font-bold mb-4 sm:mb-6 md:mb-8 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
               {t('heroTitle')}
             </h1>

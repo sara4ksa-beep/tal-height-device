@@ -403,3 +403,12 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Hero section background responsive */
+@media (min-width: 640px) {
+  .hero-section {
+    background-size: 100% auto !important;
+    background-position: center top !important;
+    min-height: 80vh !important;
+  }
+}
