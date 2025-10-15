@@ -10,7 +10,7 @@
 @layer base {
   html {
     direction: rtl;
-    font-family: 'Tajawal', 'Noto Kufi Arabic', 'Almarai', system-ui, sans-serif;
+    font-family: 'Noto Kufi Arabic', 'Almarai', 'Tajawal', system-ui, sans-serif;
   }
   
   body {

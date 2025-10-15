@@ -75,22 +75,6 @@ export default function HeightDeviceLanding() {
         </div>
       )}
 
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4 space-x-reverse">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T</span>
-              </div>
-              <h1 className="text-xl font-bold text-gray-900">جهاز زيادة الطول TAL</h1>
-            </div>
-            <div className="hidden md:flex items-center space-x-6 space-x-reverse">
-              <span className="text-blue-600 font-semibold">كود الخصم: T11</span>
-            </div>
-          </div>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
@@ -292,7 +276,7 @@ export default function HeightDeviceLanding() {
           </h2>
           
           <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-8 mb-8">
-            <div className="text-2xl md:text-3xl font-bold text-black mb-4">
+            <div className="text-2xl md:text-3xl font-bold text-white mb-4">
               احصل على خصم خاص بكود <span className="bg-white text-blue-600 px-4 py-2 rounded-full">T11</span>
             </div>
           </div>
