@@ -83,7 +83,7 @@ export default function HeightDeviceLanding() {
 
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-20 pt-32 md:pt-20 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-10 w-32 h-32 bg-blue-600 rounded-full opacity-20"></div>
