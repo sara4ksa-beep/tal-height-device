@@ -12,7 +12,6 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     message: '',
     contactMethod: 'email'
   });
@@ -41,7 +40,6 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          phone: formData.phone,
           message: formData.message
         }),
       });
@@ -108,39 +106,23 @@ export default function ContactPage() {
               </h2>
               
               <Form.Root onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <Form.Field name="name" className="space-y-2">
-                    <Form.Label className="text-sm font-medium text-gray-700">
-                      الاسم
-                    </Form.Label>
-                    <Form.Control asChild>
-                      <input
-                        type="text"
-                        required
-                        className="input-field"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                      />
-                    </Form.Control>
-                    <Form.Message match="valueMissing" className="text-red-500 text-sm">
-                      الاسم مطلوب
-                    </Form.Message>
-                  </Form.Field>
-
-                  <Form.Field name="phone" className="space-y-2">
-                    <Form.Label className="text-sm font-medium text-gray-700">
-                      رقم الهاتف
-                    </Form.Label>
-                    <Form.Control asChild>
-                      <input
-                        type="tel"
-                        className="input-field"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                      />
-                    </Form.Control>
-                  </Form.Field>
-                </div>
+                <Form.Field name="name" className="space-y-2">
+                  <Form.Label className="text-sm font-medium text-gray-700">
+                    الاسم
+                  </Form.Label>
+                  <Form.Control asChild>
+                    <input
+                      type="text"
+                      required
+                      className="input-field"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                    />
+                  </Form.Control>
+                  <Form.Message match="valueMissing" className="text-red-500 text-sm">
+                    الاسم مطلوب
+                  </Form.Message>
+                </Form.Field>
 
                 <Form.Field name="email" className="space-y-2">
                   <Form.Label className="text-sm font-medium text-gray-700">
