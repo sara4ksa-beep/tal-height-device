@@ -1,401 +1,410 @@
 'use client';
 
-import Link from 'next/link';
-import { CheckCircle, Award } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { useState, useEffect } from 'react';
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+export default function HeightDeviceLanding() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 3,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+  const [showToast, setShowToast] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-export default function HomePage() {
-  const { t, dir } = useLanguage();
+  // Countdown timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        } else if (prev.days > 0) {
+          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
+        } else {
+          return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // Copy coupon code
+  const copyCouponCode = () => {
+    navigator.clipboard.writeText('T11');
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
+
+  // Track CTA clicks
+  const trackCTAClick = (label: string) => {
+    if (typeof window !== 'undefined' && (window as unknown as Record<string, unknown>).dataLayer) {
+      ((window as unknown as Record<string, unknown>).dataLayer as Array<Record<string, unknown>>).push({
+        event: 'cta_click',
+        label: label
+      });
+    }
+  };
+
+  // FAQ data
+  const faqData = [
+    {
+      question: "هل جهاز الطول آمن للاستخدام؟",
+      answer: "نعم، جهاز الطول TAL امن 100% ويستخدم من عمر 12 الى 40 عام"
+    },
+    {
+      question: "كم يستغرق التسليم؟",
+      answer: "التسليم خلال 3-5 أيام عمل داخل المملكة. للطلبات العاجلة، يمكن التسليم خلال 24-48 ساعة مقابل رسوم إضافية."
+    },
+    {
+      question: "هل الجهاز مضمون؟",
+      answer: "نعم الجهاز مضمون لمدة 6 اشهر من تاريخ الشراء ضمان ضد الاعطال و العيوب الصناعية"
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-white" dir={dir}>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white" dir="rtl">
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="fixed top-4 left-4 z-50 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
+          تم نسخ الكود بنجاح!
+        </div>
+      )}
+
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4 space-x-reverse">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-lg">T</span>
+              </div>
+              <h1 className="text-xl font-bold text-gray-900">جهاز زيادة الطول TAL</h1>
+            </div>
+            <div className="hidden md:flex items-center space-x-6 space-x-reverse">
+              <span className="text-blue-600 font-semibold">كود الخصم: T11</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
-      <section className="relative bg-cover bg-center bg-no-repeat text-white hero-section" style={{ 
-        backgroundImage: 'url(/talocp.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundAttachment: 'scroll',
-        backgroundRepeat: 'no-repeat'
-      }}>
-        
-        <div className="container mx-auto px-4 py-8 sm:py-12 md:py-16 lg:py-20 text-center relative z-20">
-          {/* Mobile Layout */}
-          <div className="block sm:hidden">
-            <div className="text-center mb-6 pt-16">
-              <h1 className="text-2xl font-bold mb-6 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-                {t('heroTitle')}
-              </h1>
-              <div className="flex flex-col items-center justify-center gap-4">
-                <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200 text-base shadow-lg hover:shadow-xl mx-auto">
-                  {t('orderNow')}
-                </a>
-                <span className="text-white font-semibold text-base drop-shadow-2xl text-center" style={{ textShadow: '3px 3px 12px rgba(0,0,0,1), 1px 1px 4px rgba(0,0,0,0.8)' }}>
-                  يزيد طولك ٧ سم و اكثر
-                </span>
+      <section className="relative py-20 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 right-10 w-32 h-32 bg-blue-600 rounded-full opacity-20"></div>
+          <div className="absolute bottom-20 left-10 w-24 h-24 bg-blue-500 rounded-full opacity-15"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-400 rounded-full opacity-25"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              <span className="block text-red-600 mb-4">هل حلمت بزيادة طولك ؟</span>
+              جهاز TAL يعطيك نتائج مبهرة
+            </h1>
+            
+            {/* Before/After Image */}
+            <div className="mb-8">
+              <img 
+                src="/talzz.jpeg" 
+                alt="نتائج جهاز تي اي ال - قبل وبعد" 
+                className="mx-auto max-w-md w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+            
+            <p className="text-xl md:text-2xl text-red-600 font-bold mb-2 leading-relaxed">
+              خصم خاص
+            </p>
+
+            {/* Discount Badge */}
+            <div className="inline-flex items-center bg-gradient-to-r from-green-50 to-green-100 border-2 border-green-300 text-green-800 px-8 py-4 rounded-2xl text-lg font-semibold mb-8 shadow-sm">
+              <span className="ml-3">استخدم كود الخصم:</span>
+              <div className="flex items-center bg-white border-2 border-dashed border-green-400 text-green-700 px-4 py-2 rounded-lg font-bold cursor-pointer hover:bg-green-50 transition-colors" onClick={copyCouponCode}>
+                <span className="font-mono text-xl">T11</span>
+                <svg className="w-4 h-4 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mb-12">
+            <a
+              href="https://new-mall.com/tal/p364801713"
+              onClick={() => trackCTAClick('hero')}
+              className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white text-2xl font-bold px-12 py-6 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+            >
+              اطلب الآن
+            </a>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-8 text-gray-900">
+              <div className="flex items-center">
+                <div className="flex text-yellow-400 ml-2">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="font-semibold">متوسط التقييم 4.8/5</span>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-blue-600">1800+</div>
+                <div className="text-sm">عميل راضي</div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Value Propositions */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+            لماذا تختار جهازنا؟
+          </h2>
           
-          {/* Desktop/Tablet Layout */}
-          <div className="hidden sm:block pt-16">
-            <h1 className="text-responsive-xl font-bold mb-4 sm:mb-6 md:mb-8 drop-shadow-2xl leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-              {t('heroTitle')}
-            </h1>
-            
-            <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
-              <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-sm sm:text-base w-auto max-w-[200px] sm:max-w-none shadow-lg hover:shadow-xl">
-                {t('orderNow')}
-              </a>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">نتائج سريعة وفعالة</h3>
+              <p className="text-gray-600"><span className="font-bold">يزيد طولك لغاية 7 سم خلال 3 الى 6 اشهر</span></p>
             </div>
-            
-            <div className="mt-4 sm:mt-6">
-              <p className="mt-6 text-white font-semibold text-sm sm:text-base drop-shadow-2xl" style={{ textShadow: '3px 3px 12px rgba(0,0,0,1), 1px 1px 4px rgba(0,0,0,0.8)' }}>
-                يزيد طولك ٧ سم و اكثر
-              </p>
+
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">آمن ومضمون</h3>
+              <p className="text-gray-600"><span className="font-bold">مصنوع بطريقة تساعد الجسم على الاستطالة بطريقة امنة</span></p>
+            </div>
+
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">سهل الاستخدام</h3>
+              <p className="text-gray-600"><span className="font-bold">استخدام بسيط 15-30 دقيقة يومياً مع دليل شامل باللغة العربية</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Proof */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+            آراء عملائنا
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex text-yellow-400 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-gray-600 mb-4"><span className="font-bold">&quot;جهاز ممتاز زاد طولي 4 سم خلال 4 أشهر. أنصح به بشدة&quot;</span></p>
+              <div className="font-semibold text-gray-900">أحمد</div>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex text-yellow-400 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-gray-600 mb-4"><span className="font-bold">&quot;سهل الاستخدام والنتائج واضحة. شكراً لكم&quot;</span></p>
+              <div className="font-semibold text-gray-900">فاطمة</div>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex text-yellow-400 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-gray-600 mb-4"><span className="font-bold">&quot;الجهاز روعة حققت الى الان 5 سم خلال 4 اشهر الف شكر لكم&quot;</span></p>
+              <div className="font-semibold text-gray-900">خالد</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="spacing-responsive bg-gray-100">
-        <div className="container-responsive">
-          <h2 className="section-title">{t('featuresTitle')}</h2>
-          <div className="grid-responsive">
-            <div className="card text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-600" />
-              </div>
-              <h3 className="text-responsive-lg font-bold mb-2 sm:mb-3">{t('feature1Title')}</h3>
-              <p className="text-responsive text-gray-600">{t('feature1Desc')}</p>
-            </div>
-            
-            <div className="card text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
-              </div>
-              <h3 className="text-responsive-lg font-bold mb-2 sm:mb-3">{t('feature2Title')}</h3>
-              <p className="text-responsive text-gray-600">{t('feature2Desc')}</p>
-            </div>
-            
-            <div className="card text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-purple-600" />
-              </div>
-              <h3 className="text-responsive-lg font-bold mb-2 sm:mb-3">{t('feature3Title')}</h3>
-              <p className="text-responsive text-gray-600">{t('feature3Desc')}</p>
-            </div>
-            
-            <div className="card text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-orange-600" />
-              </div>
-              <h3 className="text-responsive-lg font-bold mb-2 sm:mb-3">{t('feature4Title')}</h3>
-              <p className="text-responsive text-gray-600">{t('feature4Desc')}</p>
-            </div>
-            
-            <div className="card text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-red-600" />
-              </div>
-              <h3 className="text-responsive-lg font-bold mb-2 sm:mb-3">{t('feature5Title')}</h3>
-              <p className="text-responsive text-gray-600">{t('feature5Desc')}</p>
-            </div>
-            
-            <div className="card text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                <Award className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-indigo-600" />
-              </div>
-              <h3 className="text-responsive-lg font-bold mb-2 sm:mb-3">{t('feature6Title')}</h3>
-              <p className="text-responsive text-gray-600">{t('feature6Desc')}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEO Section - Moved Above Product Description */}
-      <section className="spacing-responsive bg-gray-50">
-        <div className="container-responsive">
-          <h2 className="section-title">{t('seoTitle')}</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-              <div className="card">
-                <h3 className="text-responsive-lg font-bold text-gray-900 mb-3 sm:mb-4">{t('seo1Title')}</h3>
-                <p className="text-responsive text-gray-700 leading-relaxed">
-                  {t('seo1Desc')}
-                </p>
-              </div>
-              <div className="card">
-                <h3 className="text-responsive-lg font-bold text-gray-900 mb-3 sm:mb-4">{t('seo2Title')}</h3>
-                <ul className="text-responsive text-gray-700 space-y-2">
-                  <>
-                    <li>• يزيد الطول 7 سم وأكثر</li>
-                    <li>• يعالج قصر القامة للكبار والصغار</li>
-                    <li>• يعالج آلام الظهر وانحناء القامة</li>
-                    <li>• يخلصك من بروز البطن وترهل البطن</li>
-                    <li>• منتج معتمد لعلاج مشاكل الطول والتطويل</li>
-                  </>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Hidden SEO Keywords Section - Visible to search engines but hidden from users */}
-      <section className="sr-only" aria-hidden="true">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2>جهاز التطويل جهاز الطول قصر القامة آلام الظهر ترهل البطن علاج الطول تطويل كيف اطول</h2>
-            <p>جهاز زيادة الطول TAL هو الحل الأمثل لعلاج قصر القامة وزيادة الطول 7 سم وأكثر. يعالج آلام الظهر وانحناء القامة وترهل البطن. منتج معتمد وموثوق لعلاج مشاكل الطول والتطويل.</p>
-            <div>
-              <h3>جهاز التطويل</h3>
-              <p>جهاز متخصص لزيادة الطول وعلاج قصر القامة</p>
-              <h3>جهاز الطول</h3>
-              <p>حل فعال لقصر القامة وزيادة الطول</p>
-              <h3>قصر القامة</h3>
-              <p>مشكلة شائعة قابلة للعلاج بجهاز TAL</p>
-              <h3>آلام الظهر</h3>
-              <p>علاج فعال لآلام الظهر وانحناء القامة</p>
-              <h3>ترهل البطن</h3>
-              <p>حل مشكلة ترهل البطن وبروز البطن</p>
-              <h3>علاج</h3>
-              <p>علاج شامل لمشاكل الطول والتطويل</p>
-              <h3>الطول</h3>
-              <p>زيادة الطول بشكل طبيعي وآمن</p>
-              <h3>كيف اطول</h3>
-              <p>إجابة شاملة لسؤال كيف اطول باستخدام جهاز TAL</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* Testimonials */}
-      <section className="spacing-responsive bg-gray-50">
-        <div className="container-responsive">
-          <h2 className="section-title">
-            {t('testimonialsTitle')}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+            مميزات الجهاز
           </h2>
           
-          <div className="max-w-6xl mx-auto">
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              spaceBetween={30}
-              slidesPerView={3}
-              navigation={false}
-              pagination={{ 
-                clickable: true,
-                dynamicBullets: true,
-              }}
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              loop={true}
-              speed={600}
-              effect="slide"
-              breakpoints={{
-                320: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 30,
-                },
-                1280: {
-                  slidesPerView: 3,
-                  spaceBetween: 30,
-                },
-              }}
-              className="testimonials-swiper"
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-r-4 border-blue-600">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">يزيد طول قامتك</h3>
+              <p className="text-gray-900">
+                <span className="font-bold">بالتدريب على الجهاز مدة 25 دقيقة يوميا تحقق 7 سم زيادة في طولك</span>
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-r-4 border-blue-600">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">شد البطن</h3>
+              <p className="text-gray-900">
+                <span className="font-bold">يشد عضلات بطنك ويجعلك تبدو أكثر لياقة وأناقة</span>
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border-r-4 border-blue-600">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">معالجة انحناء القامة</h3>
+              <p className="text-gray-900">
+                <span className="font-bold">في خلال اقل من 3 اسابيع ستشعر بتحسن كبير في ظهرك و قامة جميلة غير منحنيه</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Discount Callout */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            لا تفوت هذا العرض الخاص
+          </h2>
+          
+          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-8 mb-8">
+            <div className="text-2xl md:text-3xl font-bold text-black mb-4">
+              احصل على خصم خاص بكود <span className="bg-white text-blue-600 px-4 py-2 rounded-full">T11</span>
+            </div>
+          </div>
+
+          <a
+            href="https://new-mall.com/tal/p364801713"
+            onClick={() => trackCTAClick('discount_callout')}
+            className="inline-block bg-white text-blue-600 text-xl font-bold px-12 py-6 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+          >
+            اطلب الآن واحصل على الخصم
+          </a>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              الأسئلة الشائعة
+            </h2>
+            <p className="text-lg text-gray-600">إجابات على أكثر الأسئلة شيوعاً</p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqData.map((faq, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+                <button
+                  className="w-full px-8 py-6 text-right flex items-center justify-between hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 transition-all duration-300 group"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                >
+                  <div className="flex items-center space-x-4 space-x-reverse">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      ؟
+                    </div>
+                    <span className="text-lg font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
+                      {faq.question}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-3 space-x-reverse">
+                    <span className="text-sm text-gray-500 hidden sm:block">
+                      {openFaq === index ? 'إخفاء' : 'عرض الإجابة'}
+                    </span>
+                    <div className={`w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      openFaq === index ? 'bg-blue-600 text-white' : 'group-hover:bg-blue-200'
+                    }`}>
+                      <svg
+                        className={`w-4 h-4 transform transition-transform duration-300 ${
+                          openFaq === index ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+                {openFaq === index && (
+                  <div className="px-8 pb-6 border-t border-gray-100">
+                    <div className="pt-6">
+                      <div className="flex items-start space-x-4 space-x-reverse">
+                        <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                          <svg className="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <p className="text-gray-900 leading-relaxed text-lg">{faq.answer}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          {/* CTA Button after FAQ */}
+          <div className="text-center mt-12">
+            <a
+              href="https://new-mall.com/tal/p364801713"
+              onClick={() => trackCTAClick('faq_section')}
+              className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xl font-bold px-12 py-6 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
             >
-              {/* Testimonial 1 */}
-              <SwiperSlide>
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
-                      م
-                    </div>
-                    <div className="mr-3">
-                      <h4 className="font-semibold text-gray-900">{t('testimonial1.name')}</h4>
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    {t('testimonial1.text')}
-                  </p>
-                </div>
-              </SwiperSlide>
-
-              {/* Testimonial 2 */}
-              <SwiperSlide>
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-lg">
-                      ح
-                    </div>
-                    <div className="mr-3">
-                      <h4 className="font-semibold text-gray-900">{t('testimonial2.name')}</h4>
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    {t('testimonial2.text')}
-                  </p>
-                </div>
-              </SwiperSlide>
-
-              {/* Testimonial 3 */}
-              <SwiperSlide>
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg">
-                      ل
-                    </div>
-                    <div className="mr-3">
-                      <h4 className="font-semibold text-gray-900">{t('testimonial3.name')}</h4>
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    {t('testimonial3.text')}
-                  </p>
-                </div>
-              </SwiperSlide>
-
-              {/* Testimonial 4 */}
-              <SwiperSlide>
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 h-full">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-lg">
-                      خ
-                    </div>
-                    <div className="mr-3">
-                      <h4 className="font-semibold text-gray-900">{t('testimonial4.name')}</h4>
-                      <div className="flex text-yellow-400">
-                        {[...Array(5)].map((_, i) => (
-                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 text-sm leading-relaxed">
-                    {t('testimonial4.text')}
-                  </p>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="spacing-responsive bg-blue-50">
-        <div className="container-responsive text-center">
-          <h2 className="text-responsive-xl font-bold text-gray-900 mb-4 sm:mb-6">{t('ctaTitle')}</h2>
-          <p className="text-responsive-lg text-gray-600 mb-6 sm:mb-8">
-            {t('ctaSubtitle')}
-          </p>
-          <div className="flex-responsive justify-center mb-6 sm:mb-8">
-            <a href="https://new-mall.com/tal/p364801713" target="_blank" rel="noopener noreferrer" className="bg-black hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
-              {t('ctaButton')}
-            </a>
-          </div>
-          <Link href="/questions" className="text-responsive-lg text-red-600 mb-6 sm:mb-8 hover:text-red-700 cursor-pointer underline">
-            {t('ctaFaq')}
-          </Link>
-        </div>
-      </section>
-
-      {/* Social Media */}
-      <section className="spacing-responsive bg-white">
-        <div className="container-responsive text-center">
-          <h3 className="text-responsive-lg font-bold text-gray-900 mb-6 sm:mb-8">{t('socialTitle')}</h3>
-          <div className="flex justify-center flex-wrap gap-3 sm:gap-4">
-            <a href="https://www.youtube.com/@TAL7cm" className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-200 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
-              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
-            </a>
-            <a href="https://www.tiktok.com/@tal7cm" className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-200 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors">
-              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.11V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/tal7cm/" className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-200 rounded-full flex items-center justify-center hover:bg-purple-600 hover:text-white transition-colors">
-              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
-            <a href="https://x.com/tal7cm" className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-200 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors">
-              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-            <a href="https://www.facebook.com/TAL7cm/" className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-200 rounded-full flex items-center justify-center hover:bg-blue-700 hover:text-white transition-colors">
-              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
+              اطلب الآن
             </a>
           </div>
         </div>
       </section>
+
+      {/* Mobile Sticky CTA */}
+      <div className="fixed bottom-0 left-0 right-0 bg-blue-600 text-white p-4 shadow-2xl md:hidden z-50">
+        <div className="flex items-center justify-between">
+          <div className="text-sm">
+            <div className="font-bold">هل حلمت بزيادة طولك ؟</div>
+            <div className="text-blue-200">كود: T11</div>
+          </div>
+          <a
+            href="https://new-mall.com/tal/p364801713"
+            onClick={() => trackCTAClick('mobile_sticky')}
+            className="bg-white text-blue-600 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
+          >
+            اطلب الآن
+          </a>
+        </div>
+      </div>
 
       {/* Footer */}
-      <footer className="bg-header-footer text-black py-6 sm:py-8">
-        <div className="container-responsive text-center">
-          <div className="flex items-center justify-center space-x-3 sm:space-x-4 space-x-reverse mb-3 sm:mb-4">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full p-1 flex items-center justify-center">
-          <Image
-                src="/cropped-tallogo-1.png" 
-                alt="TAL Height Device Logo" 
-                width={40}
-                height={40}
-              />
-            </div>
-            <span className="text-responsive-lg font-semibold text-black">{t('heightDevice')} TAL</span>
-          </div>
-          <p className="text-responsive text-black">{t('footerText')}</p>
-          {/* Hidden SEO keywords in footer */}
-          <div className="sr-only" aria-hidden="true">
-            <p>كلمات مفتاحية: جهاز التطويل جهاز الطول قصر القامة آلام الظهر ترهل البطن علاج الطول تطويل كيف اطول</p>
-          </div>
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-400">©️ 2025 جهاز الطول. جميع الحقوق محفوظة</p>
+          <p className="text-blue-400 mt-2 font-semibold">هل حلمت بزيادة طولك ؟ - كود الخصم: T11</p>
         </div>
       </footer>
     </div>
