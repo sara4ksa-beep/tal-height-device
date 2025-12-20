@@ -107,6 +107,54 @@ export default function HeightDeviceLanding() {
               />
             </div>
             
+            {/* Second Image */}
+            <div className="mb-8">
+              <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                يشد البطن المترهل
+              </p>
+              <img 
+                src="/7755f27c-3ca5-4881-9349-edd680f30d52-1000x1000-dzeO8pp8mioW1vFTlBHtXFHcn4Yom2n1r0ilWfkK.webp" 
+                alt="جهاز TAL لشد البطن المترهل" 
+                className="mx-auto max-w-md w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+            
+            {/* Third Image */}
+            <div className="mb-8">
+              <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                يعالج انحناء القامة
+              </p>
+              <img 
+                src="/ce06f2b5-af1a-459a-a6dd-0315d73b936d-1000x1000-mrW8Yjh7oahugkikZWpHQLQ0eGwaXBlJBR5jG6sN.webp" 
+                alt="جهاز TAL لعلاج انحناء القامة" 
+                className="mx-auto max-w-md w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+            
+            {/* Fourth Image */}
+            <div className="mb-8">
+              <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                مرفق مع الجهاز دليل استخدام باللغة العربية
+              </p>
+              <img 
+                src="/3b5c2116-b6c8-47b4-8f05-ea1d053783d0-1000x1000-ZsU0lmcQjVtBL0HYhZnH2I03lj88x5pKxinIixli.webp" 
+                alt="دليل استخدام جهاز TAL باللغة العربية" 
+                className="mx-auto max-w-md w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+            
+            {/* Fifth Image */}
+            <div className="mb-8">
+              <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                يعطيك زيادة في طولك 7 سانتي
+              </p>
+              <img 
+                src="/Sx8IRxNFAB9lsQMbME7dYZh93Thswe1RDxBnRxHc (1).webp" 
+                alt="جهاز TAL يعطيك زيادة في الطول 7 سانتي" 
+                className="mx-auto max-w-md w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+            
             <p className="text-xl md:text-2xl text-red-600 font-bold mb-2 leading-relaxed">
               خصم خاص
             </p>
