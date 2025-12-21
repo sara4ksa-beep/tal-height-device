@@ -105,6 +105,9 @@ export default function HeightDeviceLanding() {
                 alt="نتائج جهاز تي اي ال - قبل وبعد" 
                 className="mx-auto max-w-md w-full h-auto rounded-lg shadow-lg"
               />
+              <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mt-4">
+                يزيد طولك 7 سانتي
+              </p>
             </div>
             
             {/* Second Image */}
@@ -150,8 +153,9 @@ export default function HeightDeviceLanding() {
                 alt="جهاز TAL يعطيك زيادة في الطول 7 سانتي" 
                 className="mx-auto max-w-md w-full h-auto rounded-lg shadow-lg"
               />
-              <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mt-4">
-                يعطيك زيادة في طولك 7 سانتي
+            
+              <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mt-2">
+                مجرب وحقق نتائج ممتازة
               </p>
             </div>
             
