@@ -106,7 +106,7 @@ export default function HeightDeviceLanding() {
                 className="mx-auto max-w-md w-full h-auto rounded-lg shadow-lg"
               />
               <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mt-4">
-                يزيد طولك 7 سانتي
+                يزيد طولك 7 سنتيمترات
               </p>
             </div>
             
