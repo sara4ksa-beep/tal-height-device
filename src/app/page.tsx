@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function HeightDeviceLanding() {
   const [timeLeft, setTimeLeft] = useState({
@@ -157,6 +158,16 @@ export default function HeightDeviceLanding() {
               <p className="text-center text-xl md:text-2xl font-bold text-gray-900 mt-2">
                 مجرب وحقق نتائج ممتازة
               </p>
+            </div>
+            
+            {/* Price Link */}
+            <div className="mb-8 text-center">
+              <Link
+                href="/price"
+                className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xl font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              >
+                عرض الأسعار
+              </Link>
             </div>
             
             <p className="text-xl md:text-2xl text-red-600 font-bold mb-2 leading-relaxed">

@@ -15,6 +15,7 @@ const Navigation = () => {
   const navItems = [
     { href: '/', label: t('home') },
     { href: '/questions', label: t('questions') },
+    { href: '/price', label: t('price') },
     { href: 'https://new-mall.com/tal/p364801713', label: t('order'), external: true },
     { href: '/contact', label: t('contact') },
   ];

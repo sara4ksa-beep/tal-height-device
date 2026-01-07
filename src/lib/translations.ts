@@ -2,6 +2,7 @@ export const translations = {
   // Navigation
   home: 'الرئيسية',
   questions: 'الأسئلة',
+  price: 'الأسعار',
   order: 'الطلب',
   contact: 'التواصل',
   heightDevice: 'جهاز زيادة الطول',
