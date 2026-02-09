@@ -160,14 +160,45 @@ export default function HeightDeviceLanding() {
               </p>
             </div>
             
-            {/* Price Link */}
-            <div className="mb-8 text-center">
-              <Link
-                href="/price"
-                className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xl font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-              >
-                عرض الأسعار
-              </Link>
+            {/* CTA Section */}
+            <div className="mb-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+                تعاني من قصر القامة أو انحناء الظهر وآلامه؟
+              </h2>
+              <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center">
+                جهاز زيادة الطول TAL يساعدك على:
+              </p>
+              <div className="space-y-3 mb-6 max-w-2xl mx-auto">
+                <div className="flex items-center gap-3 text-lg sm:text-xl text-gray-800">
+                  <span className="text-green-600 font-bold text-2xl">✔️</span>
+                  <span>زيادة الطول حتى 7 سم</span>
+                </div>
+                <div className="flex items-center gap-3 text-lg sm:text-xl text-gray-800">
+                  <span className="text-green-600 font-bold text-2xl">✔️</span>
+                  <span>تحسين القوام والتخلص من الانحناء</span>
+                </div>
+                <div className="flex items-center gap-3 text-lg sm:text-xl text-gray-800">
+                  <span className="text-green-600 font-bold text-2xl">✔️</span>
+                  <span>تخفيف آلام الظهر</span>
+                </div>
+                <div className="flex items-center gap-3 text-lg sm:text-xl text-gray-800">
+                  <span className="text-green-600 font-bold text-2xl">✔️</span>
+                  <span>تقليل بروز البطن بأمان</span>
+                </div>
+              </div>
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 text-center">
+                يشمل دليل استخدام مجاني. اطلبه الآن واستعد لقوام أفضل ✨
+              </p>
+              <div className="text-center">
+                <a
+                  href="https://new-mall.com/tal/p364801713"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white text-lg sm:text-xl font-bold px-8 sm:px-12 py-4 sm:py-6 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                >
+                  اطلبه الان من متجر نيومول
+                </a>
+              </div>
             </div>
             
             <p className="text-xl md:text-2xl text-red-600 font-bold mb-2 leading-relaxed">
@@ -183,17 +214,6 @@ export default function HeightDeviceLanding() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
               </div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="mb-12">
-            <a
-              href="https://new-mall.com/tal/p364801713"
-              onClick={() => trackCTAClick('hero')}
-              className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white text-2xl font-bold px-12 py-6 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
-            >
-              اطلب الآن
-            </a>
             </div>
 
             {/* Trust Indicators */}
@@ -423,8 +443,8 @@ export default function HeightDeviceLanding() {
             ))}
           </div>
           
-          {/* CTA Button after FAQ */}
-          <div className="text-center mt-12">
+          {/* CTA Buttons after FAQ */}
+          <div className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="https://new-mall.com/tal/p364801713"
               onClick={() => trackCTAClick('faq_section')}
@@ -432,6 +452,12 @@ export default function HeightDeviceLanding() {
             >
               اطلب الآن
             </a>
+            <Link
+              href="/price"
+              className="inline-block bg-gradient-to-r from-gray-600 to-gray-700 text-white text-xl font-bold px-12 py-6 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+            >
+              عرض الأسعار
+            </Link>
           </div>
         </div>
       </section>
