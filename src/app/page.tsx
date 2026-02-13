@@ -163,7 +163,7 @@ export default function HeightDeviceLanding() {
             {/* CTA Section */}
             <div className="mb-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 sm:p-8 md:p-10 shadow-lg">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-                تعاني من قصر القامة أو انحناء الظهر وآلامه؟
+                تعاني من قصر القامة ؟
               </h2>
               <p className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center">
                 جهاز زيادة الطول TAL يساعدك على:
@@ -187,7 +187,7 @@ export default function HeightDeviceLanding() {
                 </div>
               </div>
               <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 text-center">
-                يشمل دليل استخدام مجاني. اطلبه الآن واستعد لقوام أفضل ✨
+                يشمل دليل استخدام مجاني. اطلبه الآن .
               </p>
               <div className="text-center">
                 <a
